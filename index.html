@@ -112,7 +112,7 @@ details.q .a::before{content:"A";color:var(--ac2);font-weight:900;margin-right:1
 details.q .a img{display:block;width:100%;max-width:720px;margin-top:14px;border-radius:12px;border:1px solid var(--line)}
 
 /* 후기 */
-.reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,320px));gap:14px;justify-content:center;align-items:start}
 .reviews .slot{aspect-ratio:3/4;border:2px dashed var(--line);border-radius:16px;display:flex;align-items:center;justify-content:center;color:var(--sub);font-size:14px;background:var(--card)}
 .reviews img{width:100%;border-radius:16px;border:1px solid var(--line)}
 
@@ -293,13 +293,10 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 <!-- 후기 -->
 <section class="page" id="review">
   <h1>풀오토 후기</h1>
-  <p class="lead">사용자 후기 이미지가 업로드될 예정입니다.</p>
+  <p class="lead">풀오토 사용자분들의 실제 후기입니다.</p>
   <div class="reviews">
-    <!-- 후기 이미지는 <img src="images/review1.png" alt="후기"> 형태로 교체 -->
-    <div class="slot">후기 이미지 준비 중</div>
-    <div class="slot">후기 이미지 준비 중</div>
-    <div class="slot">후기 이미지 준비 중</div>
-    <div class="slot">후기 이미지 준비 중</div>
+    <img src="review1.png" alt="풀오토 사용 후기 1" loading="lazy">
+    <img src="review2.png" alt="풀오토 사용 후기 2" loading="lazy">
   </div>
   <div class="tip">후기는 개인의 사례이며 수익을 보장하지 않습니다.</div>
 </section>
