@@ -25,8 +25,12 @@ a{color:var(--ac2)}
 
 /* 사이드 메뉴 */
 .side{position:fixed;left:0;top:0;bottom:0;width:260px;background:var(--side);border-right:1px solid var(--line);padding:24px 16px;display:flex;flex-direction:column;overflow-y:auto;z-index:30;transition:transform .25s}
-.logo{font-size:22px;font-weight:800;letter-spacing:.5px;color:var(--tx);text-decoration:none;padding:4px 12px 20px;display:block}
-.logo span{color:var(--ac)}
+.logo{position:relative;font-size:34px;font-weight:900;letter-spacing:1.5px;line-height:1;color:var(--tx);text-decoration:none;padding:6px 12px 26px;display:block;text-shadow:0 2px 18px rgba(34,197,94,.28);overflow:hidden}
+.logo span{color:var(--ac);text-shadow:0 0 14px rgba(34,197,94,.65),0 0 34px rgba(34,197,94,.35)}
+.logo::after{content:"";position:absolute;left:12px;bottom:12px;width:62%;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--ac),transparent)}
+.logo::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-18deg);animation:lgShine 4.5s ease-in-out infinite}
+@keyframes lgShine{0%,55%{left:-60%}100%{left:130%}}
+@media(prefers-reduced-motion:reduce){.logo::before{animation:none}}
 .menu{display:flex;flex-direction:column;gap:14px;margin-top:8px}
 .menu a.item{display:flex;align-items:center;justify-content:space-between;padding:21px 18px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--tx);text-decoration:none;font-size:16px;font-weight:700;transition:.15s}
 .menu a.item::after{content:"›";color:var(--sub);font-size:22px;line-height:1}
@@ -61,7 +65,7 @@ ol.steps{list-style:none;padding:0;margin:0;counter-reset:s}
 ol.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px 18px 64px;margin-bottom:12px;position:relative}
 ol.steps li::before{content:counter(s);position:absolute;left:18px;top:16px;width:32px;height:32px;border-radius:50%;background:var(--ac);color:#04130c;font-weight:800;display:flex;align-items:center;justify-content:center}
 ol.steps li small{display:block;color:var(--sub)}
-.tip{border-left:4px solid var(--ac);background:var(--card);padding:14px 18px;border-radius:8px;margin-top:16px;color:var(--sub)}
+.tip{word-break:keep-all;border-left:4px solid var(--ac);background:var(--card);padding:14px 18px;border-radius:8px;margin-top:16px;color:var(--sub)}
 .warn{border-left-color:var(--warn)}
 .warn b{color:var(--warn)}
 
@@ -136,9 +140,14 @@ details.q .a img{display:block;width:100%;max-width:720px;margin-top:14px;border
 .gsteps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px}
 .gs{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;position:relative}
 .gs-n{position:absolute;left:-8px;top:-8px;width:34px;height:34px;border-radius:50%;background:var(--ac);color:#04130c;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;z-index:1}
-.gs .gimg{margin:0 0 12px}
-.gs p{margin:0;font-size:15px}
-.gs small{display:block;color:var(--sub);margin-top:6px;line-height:1.5}
+.gs .gimg{margin:0 0 14px;aspect-ratio:3/2;display:flex;align-items:center;justify-content:center}
+.gs .gimg img{width:100%;height:100%;object-fit:contain}
+.gs{display:flex;flex-direction:column;text-align:left;word-break:keep-all;overflow-wrap:break-word}
+.gs-t{margin:0 0 10px;font-size:17px;font-weight:800;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.gl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.5}
+.gl li{position:relative;padding-left:18px}
+.gl li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--ac)}
+.gs-s{display:block;color:var(--sub);font-size:13px;margin-top:2px}
 @media(max-width:820px){.gsteps{grid-template-columns:1fr}}
 .gimg{display:block;width:100%;margin:12px 0 0;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#000;cursor:zoom-in}
 .gimg img{display:block;width:100%;height:auto}
@@ -226,6 +235,8 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
     <div class="dc-cap">셀퍼럴 페이백 <b>20%</b> 지급<small>✔ 트래블룰 연동 한국 거래소: <b>빗썸 · 코인원</b> — 국내 거래소에서 바로 입금·출금이 가능합니다.</small></div>
   </div>
 
+  <div class="tip warn"><b>안내</b> 더 이상 게이트아이오 거래소 연동은 API KEY 지원 문제로 지원하지 않습니다.</div>
+
   <h2>승인 절차</h2>
   <ol class="steps">
     <li>위 DEEPCOIN 로고를 눌러 안내된 링크로 가입합니다.</li>
@@ -276,17 +287,34 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
     <div class="gs">
       <div class="gs-n">1</div>
       <button class="gimg" data-img="api-deepcoin-1.jpg" data-cap="1단계 · API Management"><img src="api-deepcoin-1.jpg" alt="딥코인 API Management 메뉴" loading="lazy"></button>
-      <p><b>UID 확인 → API Management</b><small>우측 상단 프로필 메뉴에서 UID를 확인한 뒤 API Management를 누르세요. UID는 승인 신청에 필요하니 메모해 주세요.</small></p>
+      <h3 class="gs-t">UID 확인 → API Management</h3>
+      <ul class="gl">
+        <li>우측 상단 프로필 메뉴를 엽니다.</li>
+        <li><b>UID</b>를 확인해 메모합니다. (승인 신청에 필요)</li>
+        <li><b>API Management</b>를 클릭합니다.</li>
+      </ul>
     </div>
     <div class="gs">
       <div class="gs-n">2</div>
       <button class="gimg" data-img="api-deepcoin-2.jpg" data-cap="2단계 · API 생성 설정"><img src="api-deepcoin-2.jpg" alt="딥코인 API 생성 설정" loading="lazy"></button>
-      <p><b>Create API 설정</b><small>Remark에 알아보기 쉬운 이름, Password에 API 전용 비밀번호(8~20자, 대·소문자/숫자/특수문자 포함, 분실하지 않게 메모)를 입력합니다. 권한은 <b>Trade만</b> 체크하고(출금 권한 금지), <b>Do not bind IP</b>를 선택한 뒤 Confirm을 누르세요.</small></p>
+      <h3 class="gs-t">Create API 설정</h3>
+      <ul class="gl">
+        <li><b>Remark</b>: 알아보기 쉬운 이름 입력</li>
+        <li><b>Password</b>: API 전용 비밀번호 입력<br><span class="gs-s">8~20자 · 대/소문자·숫자·특수문자 포함 · 분실하지 않게 메모</span></li>
+        <li><b>Authorization</b>: Trade만 체크 (출금 권한 금지)</li>
+        <li><b>Bind IP</b>: Do not bind IP 선택</li>
+        <li><b>Confirm</b>을 클릭합니다.</li>
+      </ul>
     </div>
     <div class="gs">
       <div class="gs-n">3</div>
       <button class="gimg" data-img="api-deepcoin-3.jpg" data-cap="3단계 · 보안 인증"><img src="api-deepcoin-3.jpg" alt="딥코인 보안 인증" loading="lazy"></button>
-      <p><b>보안 인증</b><small>Email Authentication의 Get Code를 눌러 이메일로 받은 인증번호를 입력하고, Google Authentication에 구글 OTP 6자리를 입력한 뒤 Confirm을 누르세요.</small></p>
+      <h3 class="gs-t">보안 인증</h3>
+      <ul class="gl">
+        <li><b>Email</b>: Get Code → 이메일 인증번호 입력</li>
+        <li><b>Google</b>: 구글 OTP 6자리 입력</li>
+        <li><b>Confirm</b>을 클릭합니다.</li>
+      </ul>
     </div>
   </div>
 
@@ -312,6 +340,9 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 
   <details class="q"><summary><span>풀오토를 사용하려는데 얼마가 필요한가요?</span></summary>
     <div class="a">풀오토를 사용하기 위해서는 최소 증거금인 500 USDT 이상을 유지하여야 합니다.</div></details>
+
+  <details class="q"><summary><span>게이트아이오 거래소는 이용이 불가한가요?</span></summary>
+    <div class="a">기존 사용자들은 지속 사용이 가능하지만, 신규 사용자는 API KEY 인식 불가로 사용을 제한합니다.</div></details>
 
   <details class="q"><summary><span>수익이 보장되나요?</span></summary>
     <div class="a">아니요. 풀오토는 매매를 보조하는 도구이며 수익을 보장하지 않습니다. 선물 거래는 원금 손실과 청산 위험이 있으니 감당할 수 있는 범위에서 사용해 주세요.</div></details>
@@ -389,6 +420,7 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
     <li>과거 성과나 테스트 결과는 미래의 결과를 보장하지 않습니다.</li>
     <li>API 키는 본인만 관리해야 하며, 출금 권한은 부여하지 마세요.</li>
     <li>풀오토는 증거금이 500 USDT 미만이면 최소 증거금 부족으로 거래가 멈출 수 있습니다. 최소 500 USDT 이상을 유지해 주세요.<br><b>증거금 부족으로 인한 손실은 사용자 본인의 사유이며, 운영자는 이에 대해 책임을 지지 않습니다.</b></li>
+    <li><b>더 이상 게이트아이오 거래소 연동은 API KEY 지원 문제로 지원하지 않습니다.</b></li>
     <li>프로그램의 불법 복제 및 무단 도용은 형사처벌을 받을 수 있습니다.</li>
     <li>관리자를 사칭하는 사람이 있습니다. 풀오토 관리자와 매니저는 절대 개인정보를 묻거나 요구하지 않으며, 사칭하는 사람이 나타나면 바로 관리자에게 알려 주세요.</li>
   </ol>
