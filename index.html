@@ -34,12 +34,13 @@ main{margin-left:260px;padding:32px 40px 64px;max-width:1100px}
 h1{font-size:30px;margin:0 0 8px}
 h2{font-size:22px;margin:40px 0 16px}
 .lead{color:var(--sub);margin:0 0 28px}
-.hero{padding:16px 0 28px}
-.hero h1{font-size:clamp(30px,5vw,46px);line-height:1.25}
+.hero{padding:40px 0 44px}
+.hero h1{font-size:clamp(40px,7.4vw,92px);line-height:1.14;letter-spacing:-1px;font-weight:900}
 .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{color:var(--sub);font-size:17px;max-width:600px;margin:12px 0 0}
+.hero p{color:var(--sub);font-size:clamp(16px,1.8vw,21px);max-width:720px;margin:22px 0 0}
 .chartbox{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:16px}
-#tvInfo{min-height:130px}
+#tvInfoBox{height:112px}
+#tvInfo{width:154%;height:172px;transform:scale(.65);transform-origin:0 0}
 #tvChart{height:480px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
@@ -64,6 +65,14 @@ ol.steps li small{display:block;color:var(--sub)}
 /* 문의 */
 .kakao{display:block;background:#fee500;color:#191600;border-radius:16px;padding:24px;text-decoration:none;font-weight:800;font-size:18px;text-align:center}
 .kakao small{display:block;font-weight:500;margin-top:6px;word-break:break-all}
+
+/* 프로필 */
+.profile{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:32px 28px;margin-bottom:20px}
+.profile .role{color:var(--sub);font-size:15px;letter-spacing:2px;font-weight:700}
+.profile .name{font-size:clamp(30px,5vw,44px);font-weight:900;margin:2px 0 22px}
+.profile .name span{color:var(--ac)}
+.awards{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.awards li{font-size:clamp(18px,2.6vw,24px);font-weight:800;padding:16px 18px;border-radius:14px;border:1px solid var(--line);border-left:5px solid var(--ac);background:var(--bg);line-height:1.4}
 
 /* 후기 */
 .reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
@@ -113,7 +122,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:24px;color:v
   </div>
 
   <div class="chartbox" id="tvChart"></div>
-  <div class="chartbox" id="tvInfo"></div>
+  <div class="chartbox" id="tvInfoBox"><div id="tvInfo"></div></div>
 
   <h2>주요 기능</h2>
   <div class="grid">
@@ -158,6 +167,16 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:24px;color:v
 <section class="page" id="contact">
   <h1>관리자 문의</h1>
   <p class="lead">아래 1:1 카카오톡 오픈채팅으로 문의해 주세요.</p>
+  <div class="profile">
+    <div class="role">TRADER</div>
+    <div class="name"><span>chadok</span></div>
+    <ul class="awards">
+      <li>자동매매 프로그램 디렉터 수상</li>
+      <li>게이트 아이오 거래소 대회 2등 수상</li>
+      <li>비트겟 거래소 단체전 4등 수상</li>
+      <li>한국 코인 트레이더 자격증 보유</li>
+    </ul>
+  </div>
   <a class="kakao" href="https://open.kakao.com/o/s7LRMIUi" target="_blank" rel="noopener">
     1:1 카카오톡 오픈채팅 연결하기
     <small>https://open.kakao.com/o/s7LRMIUi</small>
