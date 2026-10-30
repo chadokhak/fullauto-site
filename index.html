@@ -123,9 +123,23 @@ details.q .a img{display:block;width:100%;max-width:720px;margin-top:14px;border
 
 /* 후기 */
 .reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;align-items:start}
-.gtabs{display:flex;gap:8px;margin:0 0 16px}
-.gtab{flex:1;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--sub);font-weight:700;font-size:15px;cursor:pointer}
-.gtab.on{border-color:var(--ac);color:var(--ac)}
+.dc{text-align:center;margin:8px 0 28px}
+.dc-logo{display:inline-flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none;transition:.15s}
+.dc-logo img{display:block;border-radius:26px;box-shadow:0 8px 28px rgba(255,122,0,.25)}
+.dc-logo:hover{transform:translateY(-3px)}
+.dc-name{font-size:30px;font-weight:900;letter-spacing:.14em;color:#ff7a00;text-shadow:0 2px 14px rgba(255,122,0,.35)}
+.dc-cap{margin-top:14px;font-size:16px}
+.dc-cap small{display:block;color:var(--sub);margin-top:6px}
+.dc-head{display:flex;align-items:center;justify-content:center;gap:14px;margin:6px 0 22px}
+.dc-head img{border-radius:20px}
+.dc-head .dc-name{font-size:26px}
+.gsteps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px}
+.gs{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;position:relative}
+.gs-n{position:absolute;left:-8px;top:-8px;width:34px;height:34px;border-radius:50%;background:var(--ac);color:#04130c;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;z-index:1}
+.gs .gimg{margin:0 0 12px}
+.gs p{margin:0;font-size:15px}
+.gs small{display:block;color:var(--sub);margin-top:6px;line-height:1.5}
+@media(max-width:820px){.gsteps{grid-template-columns:1fr}}
 .gimg{display:block;width:100%;margin:12px 0 0;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#000;cursor:zoom-in}
 .gimg img{display:block;width:100%;height:auto}
 .rv{display:block;width:100%;padding:0;margin:0;aspect-ratio:3/4;overflow:hidden;border-radius:16px;border:1px solid var(--line);background:var(--card);cursor:zoom-in;transition:.15s}
@@ -201,23 +215,20 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 <!-- 승인 받는 방법 -->
 <section class="page" id="approve">
   <h1>승인 받는 방법</h1>
-  <p class="lead">아래 거래소 이미지를 누르면 안내된 링크로 바로 가입할 수 있습니다.</p>
+  <p class="lead">아래 DEEPCOIN 로고를 누르면 안내된 링크로 바로 가입할 수 있습니다.</p>
 
-  <div class="ex">
-    <div>
-      <!-- href="#" 를 가입 링크로 바꾸세요 -->
-      <a class="logo-box" href="#" target="_blank" rel="noopener">거래소 1 이미지 영역</a>
-      <div class="cap">1. 오렌지 x 거래소 (셀퍼럴 페이백 10% 지급)<small><a href="#" target="_blank" rel="noopener">APK 다운로드 링크</a></small></div>
-    </div>
-    <div>
-      <a class="logo-box" href="#" target="_blank" rel="noopener">거래소 2 이미지 영역</a>
-      <div class="cap">2. 딥코인 거래소 (셀퍼럴 페이백 10% 지급)</div>
-    </div>
+  <div class="dc">
+    <!-- href="#" 를 딥코인 가입 링크로 바꾸세요 -->
+    <a class="dc-logo" href="#" target="_blank" rel="noopener" aria-label="DEEPCOIN 가입하기">
+      <img src="deepcoin-logo.png" alt="DEEPCOIN 로고" width="120" height="120">
+      <span class="dc-name">DEEPCOIN</span>
+    </a>
+    <div class="dc-cap">셀퍼럴 페이백 <b>20%</b> 지급<small>✔ 트래블룰 연동 한국 거래소: <b>빗썸 · 코인원</b> — 국내 거래소에서 바로 입금·출금이 가능합니다.</small></div>
   </div>
 
   <h2>승인 절차</h2>
   <ol class="steps">
-    <li>위 거래소 중 하나를 선택해 안내된 링크로 가입합니다.</li>
+    <li>위 DEEPCOIN 로고를 눌러 안내된 링크로 가입합니다.</li>
     <li>가입 후 본인의 UID를 확인합니다.</li>
     <li>UID를 전달하기 전에 <b>선물 지갑으로 500 USDT 이상</b>의 자금을 이동해 주세요.<small>풀오토는 최소 증거금 500 USDT 이상을 유지해야 사용할 수 있습니다.</small></li>
     <li>관리자에게 UID를 전달합니다.<small>문의 방법은 「관리자 소개 및 문의」 메뉴에서 확인하세요.</small></li>
@@ -258,30 +269,28 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 <!-- API키 -->
 <section class="page" id="api">
   <h1>API키 발급 방법</h1>
-  <p class="lead">프로그램이 내 계정으로 주문을 내려면 API 키가 필요합니다. 거래소를 선택해 순서대로 따라 해주세요.</p>
-  <div class="gtabs">
-    <button class="gtab on" data-t="gx">1. 오렌지 x</button>
-    <button class="gtab" data-t="gd">2. 딥코인</button>
+  <p class="lead">프로그램이 내 계정으로 주문을 내려면 API 키가 필요합니다. 아래 순서대로 따라 해주세요.</p>
+  <div class="dc-head"><img src="deepcoin-logo.png" alt="DEEPCOIN 로고" width="88" height="88"><span class="dc-name">DEEPCOIN</span></div>
+
+  <div class="gsteps">
+    <div class="gs">
+      <div class="gs-n">1</div>
+      <button class="gimg" data-img="api-deepcoin-1.jpg" data-cap="1단계 · API Management"><img src="api-deepcoin-1.jpg" alt="딥코인 API Management 메뉴" loading="lazy"></button>
+      <p><b>UID 확인 → API Management</b><small>우측 상단 프로필 메뉴에서 UID를 확인한 뒤 API Management를 누르세요. UID는 승인 신청에 필요하니 메모해 주세요.</small></p>
+    </div>
+    <div class="gs">
+      <div class="gs-n">2</div>
+      <button class="gimg" data-img="api-deepcoin-2.jpg" data-cap="2단계 · API 생성 설정"><img src="api-deepcoin-2.jpg" alt="딥코인 API 생성 설정" loading="lazy"></button>
+      <p><b>Create API 설정</b><small>Remark에 알아보기 쉬운 이름, Password에 API 전용 비밀번호(8~20자, 대·소문자/숫자/특수문자 포함, 분실하지 않게 메모)를 입력합니다. 권한은 <b>Trade만</b> 체크하고(출금 권한 금지), <b>Do not bind IP</b>를 선택한 뒤 Confirm을 누르세요.</small></p>
+    </div>
+    <div class="gs">
+      <div class="gs-n">3</div>
+      <button class="gimg" data-img="api-deepcoin-3.jpg" data-cap="3단계 · 보안 인증"><img src="api-deepcoin-3.jpg" alt="딥코인 보안 인증" loading="lazy"></button>
+      <p><b>보안 인증</b><small>Email Authentication의 Get Code를 눌러 이메일로 받은 인증번호를 입력하고, Google Authentication에 구글 OTP 6자리를 입력한 뒤 Confirm을 누르세요.</small></p>
+    </div>
   </div>
 
-  <div class="gpane" id="gx">
-    <div class="tip">오렌지 x API 발급 가이드는 준비 중입니다.</div>
-  </div>
-
-  <div class="gpane" id="gd" hidden>
-    <ol class="steps">
-      <li>우측 상단 프로필 메뉴에서 <b>UID</b>를 확인한 뒤 <b>API Management</b>를 클릭합니다.<small>UID는 승인 신청 시 필요하니 메모해 주세요.</small>
-        <button class="gimg" data-img="api-deepcoin-1.jpg" data-cap="1단계 · API Management"><img src="api-deepcoin-1.jpg" alt="딥코인 API Management 메뉴" loading="lazy"></button></li>
-      <li><b>Create API</b>에서 아래와 같이 설정합니다.
-        <small>· <b>Remark</b>: 알아보기 쉬운 이름 입력 (예: 풀오토)<br>· <b>Password</b>: API 전용 비밀번호 입력 (8~20자, 대·소문자/숫자/특수문자 포함) — 분실하지 않게 따로 메모해 주세요<br>· 권한은 <b>Trade</b>만 체크 (출금 권한은 절대 켜지 마세요)<br>· IP 설정은 <b>Do not bind IP</b> 선택<br>· <b>Confirm</b> 클릭</small>
-        <button class="gimg" data-img="api-deepcoin-2.jpg" data-cap="2단계 · API 생성 설정"><img src="api-deepcoin-2.jpg" alt="딥코인 API 생성 설정" loading="lazy"></button></li>
-      <li><b>보안 인증(Security Authentication)</b>을 진행합니다.
-        <small>· Email Authentication의 <b>Get Code</b>를 눌러 이메일로 받은 인증번호 입력<br>· Google Authentication에 구글 OTP 6자리 입력<br>· <b>Confirm</b> 클릭</small>
-        <button class="gimg" data-img="api-deepcoin-3.jpg" data-cap="3단계 · 보안 인증"><img src="api-deepcoin-3.jpg" alt="딥코인 보안 인증" loading="lazy"></button></li>
-    </ol>
-    <div class="tip warn"><b>이 이후에는 API KEY와 SECRET KEY가 나옵니다.</b> 절대 노출하지 마시고, 따로 컴퓨터에 메모만 남겨놔 주세요.</div>
-  </div>
-
+  <div class="tip warn"><b>이 이후에는 API KEY와 SECRET KEY가 나옵니다.</b> 절대 노출하지 마시고, 따로 컴퓨터에 메모만 남겨놔 주세요.</div>
   <div class="tip warn"><b>API 키는 타인에게 알려 주지 마세요.</b> 관리자도 API KEY·SECRET KEY를 절대 요구하지 않습니다.</div>
 </section>
 
@@ -433,10 +442,7 @@ document.querySelectorAll('.gimg').forEach(b=>b.addEventListener('click',()=>{
   lbMsg.hidden=true; lbImg.hidden=false; lbImg.src=b.dataset.img;
   lb.classList.add('on');
 }));
-document.querySelectorAll('.gtab').forEach(t=>t.addEventListener('click',()=>{
-  document.querySelectorAll('.gtab').forEach(x=>x.classList.toggle('on',x===t));
-  document.querySelectorAll('.gpane').forEach(p=>p.hidden=(p.id!==t.dataset.t));
-}));
+
 lbImg.addEventListener('error',()=>{lbImg.hidden=true;lbMsg.hidden=false;});
 const lbClose=()=>lb.classList.remove('on');
 document.getElementById('lbX').onclick=lbClose;
