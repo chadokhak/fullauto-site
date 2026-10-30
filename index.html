@@ -14,11 +14,11 @@ body{margin:0;background:var(--bg);color:var(--tx);font-family:-apple-system,"Pr
 a{color:var(--ac2)}
 
 /* 사이드 메뉴 */
-.side{position:fixed;left:0;top:0;bottom:0;width:260px;background:var(--side);border-right:1px solid var(--line);padding:24px 16px;display:flex;flex-direction:column;z-index:30;transition:transform .25s}
+.side{position:fixed;left:0;top:0;bottom:0;width:260px;background:var(--side);border-right:1px solid var(--line);padding:24px 16px;display:flex;flex-direction:column;overflow-y:auto;z-index:30;transition:transform .25s}
 .logo{font-size:22px;font-weight:800;letter-spacing:.5px;color:var(--tx);text-decoration:none;padding:4px 12px 20px;display:block}
 .logo span{color:var(--ac)}
 .menu{display:flex;flex-direction:column;gap:14px;margin-top:8px}
-.menu a.item{display:flex;align-items:center;justify-content:space-between;padding:24px 18px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--tx);text-decoration:none;font-size:16px;font-weight:700;transition:.15s}
+.menu a.item{display:flex;align-items:center;justify-content:space-between;padding:21px 18px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--tx);text-decoration:none;font-size:16px;font-weight:700;transition:.15s}
 .menu a.item::after{content:"›";color:var(--sub);font-size:22px;line-height:1}
 .menu a.item:hover{border-color:var(--ac);transform:translateX(2px)}
 .menu a.item.on{border-color:var(--ac);color:var(--ac);box-shadow:inset 4px 0 0 var(--ac)}
@@ -71,8 +71,34 @@ ol.steps li small{display:block;color:var(--sub)}
 .profile .role{color:var(--sub);font-size:15px;letter-spacing:2px;font-weight:700}
 .profile .name{font-size:clamp(30px,5vw,44px);font-weight:900;margin:2px 0 22px}
 .profile .name span{color:var(--ac)}
+.profile .note{margin:0 0 22px;color:var(--sub);font-size:15px}
 .awards{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .awards li{font-size:clamp(18px,2.6vw,24px);font-weight:800;padding:16px 18px;border-radius:14px;border:1px solid var(--line);border-left:5px solid var(--ac);background:var(--bg);line-height:1.4}
+
+/* 운영시간 / 주의 / FAQ */
+.hours{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin:16px 0 0}
+.hours b{font-size:17px}
+.hours span{color:var(--ac);font-weight:800;font-size:17px}
+.alert{border:1px solid var(--warn);border-radius:16px;padding:20px 22px;margin-top:20px;background:var(--card)}
+.alert h3{margin:0 0 10px;color:var(--warn);font-size:18px}
+.alert ul{margin:0;padding-left:20px}
+.alert li{margin-bottom:6px}
+.log{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.log h3{margin:0 0 10px}
+.log ul{margin:0;padding-left:20px;color:var(--sub)}
+
+details.q{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden;transition:.15s}
+details.q:hover{border-color:var(--ac)}
+details.q[open]{border-color:var(--ac)}
+details.q summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:21px 18px;font-weight:700;font-size:16px;color:var(--tx)}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary::before{content:"Q";color:var(--ac);font-weight:900;margin-right:2px}
+details.q summary span{flex:1}
+details.q summary::after{content:"›";color:var(--sub);font-size:22px;line-height:1;transition:transform .2s}
+details.q[open] summary::after{transform:rotate(90deg);color:var(--ac)}
+details.q .a{padding:16px 18px 20px;border-top:1px solid var(--line);color:var(--sub);line-height:1.8}
+details.q .a::before{content:"A";color:var(--ac2);font-weight:900;margin-right:10px}
+details.q .a img{display:block;width:100%;max-width:720px;margin-top:14px;border-radius:12px;border:1px solid var(--line)}
 
 /* 후기 */
 .reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
@@ -82,7 +108,13 @@ ol.steps li small{display:block;color:var(--sub)}
 .dl{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:44px 20px}
 .dl p{color:var(--sub)}
 .disc ol{padding-left:20px;color:var(--sub);font-size:14px}
-footer{border-top:1px solid var(--line);margin-top:56px;padding-top:24px;color:var(--sub);font-size:13px}
+footer{border-top:1px solid var(--line);margin-top:56px;padding-top:28px;color:var(--sub);font-size:13px}
+footer .links{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+footer .chip{display:inline-flex;align-items:center;gap:8px;padding:14px 20px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--tx);text-decoration:none;font-weight:700;font-size:15px}
+footer a.chip:hover{border-color:var(--ac)}
+footer .chip.kakao-c{background:#fee500;border-color:#fee500;color:#191600}
+footer .chip.off{color:var(--sub);cursor:default}
+footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub);border:1px solid var(--line);border-radius:20px;padding:1px 8px}
 
 /* 모바일 */
 .burger{display:none;position:fixed;top:12px;left:12px;z-index:40;background:var(--card);border:1px solid var(--line);color:var(--tx);border-radius:10px;width:42px;height:42px;font-size:20px;cursor:pointer}
@@ -103,8 +135,9 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:24px;color:v
   <a class="logo" href="#home">FULL<span>AUTO</span></a>
   <nav class="menu">
     <a class="item" href="#approve">승인 받는 방법</a>
-    <a class="item" href="#contact">관리자 문의</a>
+    <a class="item" href="#contact">관리자 소개 및 문의</a>
     <a class="item" href="#api">API키 발급 방법</a>
+    <a class="item" href="#faq">자주 묻는 질문</a>
     <a class="item" href="#review">풀오토 후기</a>
     <a class="item" href="#download">풀오토 다운로드</a>
     <a class="item must" href="#notice">※필독 유의사항</a>
@@ -158,18 +191,19 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:24px;color:v
   <ol class="steps">
     <li>위 거래소 중 하나를 선택해 안내된 링크로 가입합니다.</li>
     <li>가입 후 본인의 UID를 확인합니다.</li>
-    <li>관리자에게 UID를 전달합니다.<small>문의 방법은 「관리자 문의」 메뉴에서 확인하세요.</small></li>
+    <li>관리자에게 UID를 전달합니다.<small>문의 방법은 「관리자 소개 및 문의」 메뉴에서 확인하세요.</small></li>
     <li>승인이 완료되면 프로그램을 내려받아 사용할 수 있습니다.</li>
   </ol>
 </section>
 
 <!-- 관리자 문의 -->
 <section class="page" id="contact">
-  <h1>관리자 문의</h1>
+  <h1>관리자 소개 및 문의</h1>
   <p class="lead">아래 1:1 카카오톡 오픈채팅으로 문의해 주세요.</p>
   <div class="profile">
     <div class="role">TRADER</div>
-    <div class="name"><span>chadok</span></div>
+    <div class="name" style="margin-bottom:8px"><span>chadok</span></div>
+    <p class="note">모든 거래는 풀오토에 셋팅된 지표로 거래되었습니다.</p>
     <ul class="awards">
       <li>자동매매 프로그램 디렉터 수상</li>
       <li>게이트 아이오 거래소 대회 2등 수상</li>
@@ -181,6 +215,15 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:24px;color:v
     1:1 카카오톡 오픈채팅 연결하기
     <small>https://open.kakao.com/o/s7LRMIUi</small>
   </a>
+  <div class="hours"><b>문의 가능 시간</b><span>평일 오전 10:00 ~ 오후 9:00</span></div>
+  <div class="alert">
+    <h3>사칭 주의 안내</h3>
+    <ul>
+      <li>관리자를 사칭하는 사람이 있습니다. 사칭하는 사람이 나타나면 바로 관리자에게 알려 주세요.</li>
+      <li>풀오토 관리자와 매니저는 <b>절대 개인정보를 묻거나 요구하지 않습니다.</b></li>
+      <li>API SECRET KEY, 비밀번호, 인증번호 등을 요구하면 응하지 말고 즉시 신고해 주세요.</li>
+    </ul>
+  </div>
 </section>
 
 <!-- API키 -->
@@ -196,6 +239,44 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:24px;color:v
   </ol>
   <div class="tip warn"><b>API 키는 타인에게 알려 주지 마세요.</b> 관리자도 SECRET KEY를 요구하지 않습니다.</div>
   <div class="tip">거래소별 화면 캡처 가이드는 추가될 예정입니다.</div>
+</section>
+
+
+<!-- 자주 묻는 질문 -->
+<section class="page" id="faq">
+  <h1>자주 묻는 질문</h1>
+  <p class="lead">질문을 누르면 답변이 펼쳐집니다.</p>
+
+  <details class="q"><summary><span>UID는 어디서 확인하나요?</span></summary>
+    <div class="a">각 거래소 마이 페이지에 들어가시면 9자리 숫자로 UID를 확인할 수 있습니다.</div></details>
+
+  <details class="q"><summary><span>프로그램이 안 켜져요</span></summary>
+    <div class="a">지정된 거래소 가입 경로로 가입하여 승인을 받지 못하면 프로그램 사용이 제한됩니다. 자세한 사항은 「승인 받는 방법」을 참고해 주세요.</div></details>
+
+  <details class="q"><summary><span>사용 방법을 모르겠어요</span></summary>
+    <div class="a">아래 사진의 설정대로 입력해 주세요. 거래소 UID, API Key, Secret Key를 입력하고 기준 봉 주기, 레버리지, 증거금 비중, 감시 종목을 선택한 뒤 시작하면 됩니다. 증거금 비중은 100%로 설정할 수 없습니다.
+      <img src="guide.png" alt="풀오토 설정 화면"></div></details>
+
+  <details class="q"><summary><span>수익이 보장되나요?</span></summary>
+    <div class="a">아니요. 풀오토는 매매를 보조하는 도구이며 수익을 보장하지 않습니다. 선물 거래는 원금 손실과 청산 위험이 있으니 감당할 수 있는 범위에서 사용해 주세요.</div></details>
+
+  <details class="q"><summary><span>API 키는 어떤 권한으로 만들어야 하나요?</span></summary>
+    <div class="a">선물(Futures) 거래 권한만 켜고, 출금 권한은 반드시 끄세요. 자세한 방법은 「API키 발급 방법」에서 확인할 수 있습니다.</div></details>
+
+  <details class="q"><summary><span>프로그램을 끄거나 PC가 꺼지면 어떻게 되나요?</span></summary>
+    <div class="a">프로그램이 꺼지면 익절·손절 감시도 함께 멈춥니다. 이미 잡혀 있는 포지션은 거래소에 그대로 남아 있으니, 포지션이 있는 상태에서는 프로그램과 PC를 켜 두시고, 종료할 때는 거래소 앱에서 포지션 상태를 꼭 확인해 주세요.</div></details>
+
+  <details class="q"><summary><span>어떤 종목을 매매하나요?</span></summary>
+    <div class="a">비트코인(BTC), 이더리움(ETH), 리플(XRP), 솔라나(SOL) 중에서 원하는 종목을 선택해 감시할 수 있습니다.</div></details>
+
+  <details class="q"><summary><span>매매 내역은 어디서 확인하나요?</span></summary>
+    <div class="a">프로그램 하단의 「매매기록 보기」 버튼에서 확인할 수 있습니다. 익절·손절 기준은 「수익/손실 기준 보기」 버튼에서 볼 수 있습니다.</div></details>
+
+  <details class="q"><summary><span>백신 프로그램이 경고를 띄워요</span></summary>
+    <div class="a">새로 만든 프로그램은 일부 백신이 경고를 띄울 수 있습니다. 반드시 이 홈페이지의 「풀오토 다운로드」 메뉴에서만 내려받으시고, 다른 곳에서 받은 파일은 사용하지 마세요. 문의는 관리자에게 해 주세요.</div></details>
+
+  <details class="q"><summary><span>업데이트는 어떻게 확인하나요?</span></summary>
+    <div class="a">프로그램의 「공지사항」 버튼과 오픈채팅방, 이 홈페이지의 다운로드 메뉴에서 최신 버전과 업데이트 내역을 확인할 수 있습니다.</div></details>
 </section>
 
 <!-- 후기 -->
@@ -215,14 +296,32 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:24px;color:v
 <!-- 다운로드 -->
 <section class="page" id="download">
   <h1>풀오토 다운로드</h1>
-  <p class="lead">승인이 완료된 분만 사용할 수 있습니다.</p>
+  <p class="lead">승인이 완료된 분만 사용할 수 있습니다. 아래 버튼은 항상 최신 버전으로 연결됩니다.</p>
   <div class="dl">
-    <h2 style="margin:0 0 8px">FullAuto v1.10</h2>
-    <p>Windows 전용</p>
-    <!-- href="#" 를 다운로드 주소로 바꾸세요 -->
-    <a class="btn" href="#" target="_blank" rel="noopener">다운로드</a>
+    <h2 style="margin:0 0 6px">FullAuto <span id="dlVer">v1.10</span></h2>
+    <p style="margin:0 0 20px">Windows 전용 · 최종 업데이트 <b id="dlDate">2026.10.30</b></p>
+    <a class="btn" href="https://github.com/chadokhak/fullauto-site/releases/latest/download/fullauto.exe">최신 버전 다운로드</a>
     <p style="font-size:13px;margin-top:20px">일부 백신 프로그램이 새 프로그램을 경고할 수 있습니다. 문의가 필요하면 관리자에게 연락해 주세요.</p>
   </div>
+
+  <h2>업데이트 내역</h2>
+  <div class="log">
+    <h3><span id="logVer">v1.10</span> <span style="color:var(--ac);font-size:14px">최신 버전</span></h3>
+    <ul id="logList">
+      <li>재진입 거래 전용 손절 기준 추가</li>
+      <li>익절 라인 상향 조정</li>
+      <li>사용 설명서(? 버튼) 추가</li>
+      <li>필독 안내 문구 추가</li>
+    </ul>
+  </div>
+
+  <h2>새 버전으로 덮어쓰는 방법</h2>
+  <ol class="steps">
+    <li>실행 중인 풀오토를 완전히 종료합니다.<small>포지션이 열려 있다면 거래소 앱에서 상태를 먼저 확인하세요.</small></li>
+    <li>위 「최신 버전 다운로드」 버튼으로 새 파일을 받습니다.</li>
+    <li>기존 풀오토 파일이 있는 폴더에 새 파일을 붙여 넣고, 같은 이름이면 <b>「바꾸기(덮어쓰기)」</b>를 선택합니다.</li>
+    <li>풀오토를 실행하고 창 제목의 버전 번호가 최신인지 확인합니다.<small>입력해 둔 설정은 같은 폴더에 저장되므로 폴더를 지우지 않으면 그대로 유지됩니다.</small></li>
+  </ol>
 </section>
 
 <!-- 필독 유의사항 -->
@@ -235,11 +334,21 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding-top:24px;color:v
     <li>과거 성과나 테스트 결과는 미래의 결과를 보장하지 않습니다.</li>
     <li>API 키는 본인만 관리해야 하며, 출금 권한은 부여하지 마세요.</li>
     <li>프로그램의 불법 복제 및 무단 도용은 형사처벌을 받을 수 있습니다.</li>
+    <li>관리자를 사칭하는 사람이 있습니다. 풀오토 관리자와 매니저는 절대 개인정보를 묻거나 요구하지 않으며, 사칭하는 사람이 나타나면 바로 관리자에게 알려 주세요.</li>
   </ol>
   <div class="tip warn"><b>고배율 고비중은 청산의 지름길입니다.</b> 무리한 매매는 삼가 주세요.</div>
 </section>
 
-<footer>© FullAuto · fullauto.kr</footer>
+<footer>
+  <div class="links">
+    <a class="chip kakao-c" href="https://open.kakao.com/o/gT0CNIUi" target="_blank" rel="noopener">카카오톡 오픈채팅방</a>
+    <!-- 텔레그램 방이 열리면 아래 줄을 이렇게 바꾸세요:
+         <a class="chip" href="텔레그램링크" target="_blank" rel="noopener">텔레그램</a> -->
+    <span class="chip off">텔레그램 <em>오픈 예정</em></span>
+    <a class="chip" href="#notice">※필독 유의사항</a>
+  </div>
+  © FullAuto · fullauto.kr
+</footer>
 </main>
 
 <script>
@@ -258,6 +367,17 @@ function show(){
 window.addEventListener('hashchange',show);
 document.getElementById('burger').onclick=()=>side.classList.toggle('open');
 show();
+
+// ---- 업데이트 정보 (update.json 수정으로 갱신) ----
+fetch('update.json?t='+Date.now()).then(r=>r.ok?r.json():null).then(d=>{
+  if(!d) return;
+  const set=(id,t)=>{const el=document.getElementById(id); if(el&&t) el.textContent=t;};
+  set('dlVer',d.version); set('logVer',d.version); set('dlDate',d.date);
+  if(Array.isArray(d.notes)&&d.notes.length){
+    const ul=document.getElementById('logList'); ul.textContent='';
+    d.notes.forEach(n=>{const li=document.createElement('li'); li.textContent=n; ul.appendChild(li);});
+  }
+}).catch(()=>{});
 
 // ---- 트레이딩뷰 위젯 ----
 const SYMBOL='GATEIO:BTCUSDT';   // 바꾸려면 여기만 수정
