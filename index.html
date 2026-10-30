@@ -122,9 +122,11 @@ details.q .a::before{content:"A";color:var(--ac2);font-weight:900;margin-right:1
 details.q .a img{display:block;width:100%;max-width:720px;margin-top:14px;border-radius:12px;border:1px solid var(--line)}
 
 /* 후기 */
-.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,320px));gap:14px;justify-content:center;align-items:start}
-.reviews .slot{aspect-ratio:3/4;border:2px dashed var(--line);border-radius:16px;display:flex;align-items:center;justify-content:center;color:var(--sub);font-size:14px;background:var(--card)}
-.reviews img{width:100%;border-radius:16px;border:1px solid var(--line)}
+.reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;align-items:start}
+.rv{display:block;width:100%;padding:0;margin:0;aspect-ratio:3/4;overflow:hidden;border-radius:16px;border:1px solid var(--line);background:var(--card);cursor:zoom-in;transition:.15s}
+.rv:hover{border-color:var(--ac);transform:translateY(-2px)}
+.rv img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border:0;border-radius:0}
+.rv.fit img{object-fit:contain;object-position:center}
 
 .dl{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:44px 20px}
 .dl p{color:var(--sub)}
@@ -304,12 +306,13 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 <section class="page" id="review">
   <h1>풀오토 후기</h1>
   <p class="lead">풀오토 사용자분들의 실제 후기입니다.</p>
+  <p class="hint">사진을 누르면 크게 볼 수 있습니다.</p>
   <div class="reviews">
-    <img src="review1.png" alt="풀오토 사용 후기 1" loading="lazy">
-    <img src="review2.png" alt="풀오토 사용 후기 2" loading="lazy">
-    <img src="review3.png" alt="풀오토 사용 후기 3" loading="lazy">
-    <img src="review4.png" alt="풀오토 사용 후기 4" loading="lazy">
-    <img src="review5.png" alt="풀오토 사용 후기 5" loading="lazy">
+    <button type="button" class="rv fit" data-img="review1.png"><img src="review1.png" alt="풀오토 사용 후기 1" loading="lazy"></button>
+    <button type="button" class="rv" data-img="review2.png"><img src="review2.png" alt="풀오토 사용 후기 2" loading="lazy"></button>
+    <button type="button" class="rv" data-img="review3.png"><img src="review3.png" alt="풀오토 사용 후기 3" loading="lazy"></button>
+    <button type="button" class="rv" data-img="review4.png"><img src="review4.png" alt="풀오토 사용 후기 4" loading="lazy"></button>
+    <button type="button" class="rv" data-img="review5.png"><img src="review5.png" alt="풀오토 사용 후기 5" loading="lazy"></button>
   </div>
   <div class="tip">후기는 개인의 사례이며 수익을 보장하지 않습니다.</div>
 </section>
@@ -395,6 +398,11 @@ const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lb
 document.querySelectorAll('.aw').forEach(b=>b.addEventListener('click',()=>{
   document.getElementById('lbT').textContent=b.textContent;
   lbMsg.hidden=true; lbImg.hidden=false; lbImg.src=b.dataset.img+'?v=1';
+  lb.classList.add('on');
+}));
+document.querySelectorAll('.rv').forEach(b=>b.addEventListener('click',()=>{
+  document.getElementById('lbT').textContent='풀오토 후기';
+  lbMsg.hidden=true; lbImg.hidden=false; lbImg.src=b.dataset.img;
   lb.classList.add('on');
 }));
 lbImg.addEventListener('error',()=>{lbImg.hidden=true;lbMsg.hidden=false;});
