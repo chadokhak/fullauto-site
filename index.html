@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>풀오토 트레이딩 | 비트코인 선물 자동매매 프로그램 FullAuto</title>
-<meta name="description" content="풀오토는 비트코인·이더리움 등 USDT 무기한 선물을 자동으로 매매하는 프로그램입니다. 슈퍼트렌드·EMA·ADX 기반 진입, 익절·손절 자동 관리. 승인 방법, API 발급, 다운로드 안내.">
-<meta name="keywords" content="풀오토, 풀오토 트레이딩, FullAuto, 선물 자동매매, 비트코인 자동매매, 코인 자동매매 프로그램, 딥코인, 딥코인 API">
+<title>풀오토 트레이딩 | 비트코인 선물거래 · 코인선물 자동매매 프로그램 FullAuto</title>
+<meta name="description" content="풀오토는 비트코인 선물거래, 코인선물거래를 자동으로 매매하는 코인 자동매매 프로그램입니다. 슈퍼트렌드·EMA·ADX 기반 진입, 익절·손절 자동 관리. 승인 방법, 딥코인 API 발급, 다운로드 안내.">
+<meta name="keywords" content="풀오토, 풀오토 트레이딩, FullAuto, 비트코인, 코인, 선물거래, 비트코인 선물거래, 비트코인 선물, 코인선물, 코인선물거래, 코인 자동매매, 코인 자동매매 프로그램, 코인 자동매매 프로그램 추천, 코인 선물 자동매매 프로그램, 선물 자동매매, 비트코인 자동매매, 비트코인 선물 자동매매, 비트코인 선물 자동매매 설정, 코인 자동매매 API 연동 방법, 코인 자동매매 초보, 코인 자동매매 익절 손절 설정, 슈퍼트렌드 자동매매, 슈퍼트렌드 EMA200 전략, 코인 선물 레버리지 설정, 코인 선물 증거금 비중, 코인 트레일링 익절, 딥코인, 딥코인 API, 딥코인 API 발급 방법, 딥코인 API 연동, 딥코인 가입 방법, 딥코인 UID 확인, 딥코인 선물, 딥코인 페이백, 딥코인 레퍼럴, 딥코인 트래블룰, 딥코인 빗썸 입금, 딥코인 코인원 입금">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://fullauto.kr/">
 <!-- 검색엔진 소유권 확인: Search Console / 네이버 서치어드바이저에서 받은 메타태그를 아래에 붙여넣으세요 -->
@@ -14,7 +14,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"WebSite","name":"풀오토 트레이딩","alternateName":["FullAuto","풀오토"],"url":"https://fullauto.kr/","inLanguage":"ko-KR"},
-{"@type":"SoftwareApplication","name":"풀오토 트레이딩","alternateName":"FullAuto","applicationCategory":"FinanceApplication","operatingSystem":"Windows","description":"USDT 무기한 선물 자동매매 프로그램. 매매를 보조하는 도구이며 수익을 보장하지 않습니다.","url":"https://fullauto.kr/","image":"https://fullauto.kr/og.png"}
+{"@type":"SoftwareApplication","name":"풀오토 트레이딩","alternateName":"FullAuto","applicationCategory":"FinanceApplication","operatingSystem":"Windows","description":"비트코인 선물거래·코인선물거래 USDT 무기한 선물 코인 자동매매 프로그램. 매매를 보조하는 도구이며 수익을 보장하지 않습니다.","url":"https://fullauto.kr/","image":"https://fullauto.kr/og.png"}
 ]}
 </script>
 <meta property="og:type" content="website">
@@ -37,6 +37,12 @@ a{color:var(--ac2)}
 
 /* 사이드 메뉴 */
 .side{position:fixed;left:0;top:0;bottom:0;width:260px;background:var(--side);border-right:1px solid var(--line);padding:24px 16px;display:flex;flex-direction:column;overflow-y:auto;z-index:30;transition:transform .25s}
+.topics{margin:28px 0 8px}
+.tp-h{font-size:15px;margin:0 0 10px;color:var(--sub);font-weight:700}
+.tp{display:flex;flex-wrap:wrap;gap:8px}
+.tp a{display:inline-block;padding:7px 13px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--tx);text-decoration:none;font-size:13px;transition:.15s}
+.tp a:hover{border-color:var(--ac);color:var(--ac)}
+.seo-intro{color:var(--sub);font-size:14px;line-height:1.7;margin:0 0 22px;word-break:keep-all}
 .logo{position:relative;font-size:34px;font-weight:900;letter-spacing:1.5px;line-height:1;color:var(--tx);text-decoration:none;padding:6px 12px 26px;display:block;text-shadow:0 2px 18px rgba(34,197,94,.28);overflow:hidden}
 .logo span{color:var(--ac);text-shadow:0 0 14px rgba(34,197,94,.65),0 0 34px rgba(34,197,94,.35)}
 .logo::after{content:"";position:absolute;left:12px;bottom:12px;width:62%;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--ac),transparent)}
@@ -216,6 +222,7 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
     <h1>매매는 <em>[ 풀오토 ]</em>가,<br>설정은 단 한 번만.</h1>
     <p>정해 둔 원칙에 따라 진입부터 청산까지<br>프로그램이 자동으로 진행하는 선물 자동매매 프로그램입니다.</p>
   </div>
+  <p class="seo-intro">풀오토 트레이딩은 비트코인 선물거래와 코인선물거래를 위한 코인 자동매매 프로그램입니다. 비트코인·이더리움·리플·솔라나 USDT 무기한 선물을 지표 조건에 따라 자동으로 매매하며, 익절과 손절도 프로그램이 관리합니다. 선물거래는 원금 손실 위험이 있으며 수익을 보장하지 않습니다.</p>
 
   <div class="chartbox" id="tvChart"></div>
   <div class="chartbox" id="tvInfoBox"><div id="tvInfo"></div></div>
@@ -438,6 +445,8 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
   </ol>
   <div class="tip warn"><b>고배율 고비중은 청산의 지름길입니다.</b> 무리한 매매는 삼가 주세요.</div>
 </section>
+
+<nav class="topics" aria-label="자주 찾는 주제"><h2 class="tp-h">자주 찾는 주제</h2><div class="tp"><a class="chip" href="#home">코인 자동매매 프로그램</a><a class="chip" href="#home">비트코인 선물 자동매매</a><a class="chip" href="#home">코인선물거래 자동매매 설정</a><a class="chip" href="#home">슈퍼트렌드 · EMA200 전략</a><a class="chip" href="#approve">딥코인 가입 방법</a><a class="chip" href="#approve">딥코인 UID 확인</a><a class="chip" href="#approve">딥코인 페이백</a><a class="chip" href="#approve">딥코인 트래블룰 · 빗썸 · 코인원</a><a class="chip" href="#api">딥코인 API 발급 방법</a><a class="chip" href="#api">딥코인 API 연동</a><a class="chip" href="#faq">자동매매 익절 · 손절 설정</a><a class="chip" href="#download">풀오토 다운로드</a></div></nav>
 
 <footer>
   <div class="links">
