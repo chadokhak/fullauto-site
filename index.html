@@ -123,6 +123,11 @@ details.q .a img{display:block;width:100%;max-width:720px;margin-top:14px;border
 
 /* 후기 */
 .reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;align-items:start}
+.gtabs{display:flex;gap:8px;margin:0 0 16px}
+.gtab{flex:1;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--sub);font-weight:700;font-size:15px;cursor:pointer}
+.gtab.on{border-color:var(--ac);color:var(--ac)}
+.gimg{display:block;width:100%;margin:12px 0 0;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#000;cursor:zoom-in}
+.gimg img{display:block;width:100%;height:auto}
 .rv{display:block;width:100%;padding:0;margin:0;aspect-ratio:3/4;overflow:hidden;border-radius:16px;border:1px solid var(--line);background:var(--card);cursor:zoom-in;transition:.15s}
 .rv:hover{border-color:var(--ac);transform:translateY(-2px)}
 .rv img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border:0;border-radius:0}
@@ -253,16 +258,31 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 <!-- API키 -->
 <section class="page" id="api">
   <h1>API키 발급 방법</h1>
-  <p class="lead">프로그램이 내 계정으로 주문을 내려면 API 키가 필요합니다.</p>
-  <ol class="steps">
-    <li>거래소에 로그인한 뒤 API 관리 메뉴로 이동합니다.</li>
-    <li>새 API 키를 생성합니다.</li>
-    <li>권한은 <b>선물(Futures) 거래</b>만 켭니다.<small><b>출금 권한은 반드시 끄세요.</b></small></li>
-    <li>발급된 API KEY와 SECRET KEY를 안전한 곳에 복사해 둡니다.<small>SECRET KEY는 발급 화면에서만 확인할 수 있는 경우가 많습니다.</small></li>
-    <li>프로그램을 실행해 UID · API KEY · SECRET KEY를 입력합니다.</li>
-  </ol>
-  <div class="tip warn"><b>API 키는 타인에게 알려 주지 마세요.</b> 관리자도 SECRET KEY를 요구하지 않습니다.</div>
-  <div class="tip">거래소별 화면 캡처 가이드는 추가될 예정입니다.</div>
+  <p class="lead">프로그램이 내 계정으로 주문을 내려면 API 키가 필요합니다. 거래소를 선택해 순서대로 따라 해주세요.</p>
+  <div class="gtabs">
+    <button class="gtab on" data-t="gx">1. 오렌지 x</button>
+    <button class="gtab" data-t="gd">2. 딥코인</button>
+  </div>
+
+  <div class="gpane" id="gx">
+    <div class="tip">오렌지 x API 발급 가이드는 준비 중입니다.</div>
+  </div>
+
+  <div class="gpane" id="gd" hidden>
+    <ol class="steps">
+      <li>우측 상단 프로필 메뉴에서 <b>UID</b>를 확인한 뒤 <b>API Management</b>를 클릭합니다.<small>UID는 승인 신청 시 필요하니 메모해 주세요.</small>
+        <button class="gimg" data-img="api-deepcoin-1.jpg" data-cap="1단계 · API Management"><img src="api-deepcoin-1.jpg" alt="딥코인 API Management 메뉴" loading="lazy"></button></li>
+      <li><b>Create API</b>에서 아래와 같이 설정합니다.
+        <small>· <b>Remark</b>: 알아보기 쉬운 이름 입력 (예: 풀오토)<br>· <b>Password</b>: API 전용 비밀번호 입력 (8~20자, 대·소문자/숫자/특수문자 포함) — 분실하지 않게 따로 메모해 주세요<br>· 권한은 <b>Trade</b>만 체크 (출금 권한은 절대 켜지 마세요)<br>· IP 설정은 <b>Do not bind IP</b> 선택<br>· <b>Confirm</b> 클릭</small>
+        <button class="gimg" data-img="api-deepcoin-2.jpg" data-cap="2단계 · API 생성 설정"><img src="api-deepcoin-2.jpg" alt="딥코인 API 생성 설정" loading="lazy"></button></li>
+      <li><b>보안 인증(Security Authentication)</b>을 진행합니다.
+        <small>· Email Authentication의 <b>Get Code</b>를 눌러 이메일로 받은 인증번호 입력<br>· Google Authentication에 구글 OTP 6자리 입력<br>· <b>Confirm</b> 클릭</small>
+        <button class="gimg" data-img="api-deepcoin-3.jpg" data-cap="3단계 · 보안 인증"><img src="api-deepcoin-3.jpg" alt="딥코인 보안 인증" loading="lazy"></button></li>
+    </ol>
+    <div class="tip warn"><b>이 이후에는 API KEY와 SECRET KEY가 나옵니다.</b> 절대 노출하지 마시고, 따로 컴퓨터에 메모만 남겨놔 주세요.</div>
+  </div>
+
+  <div class="tip warn"><b>API 키는 타인에게 알려 주지 마세요.</b> 관리자도 API KEY·SECRET KEY를 절대 요구하지 않습니다.</div>
 </section>
 
 
@@ -326,7 +346,7 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
   <h1>풀오토 다운로드</h1>
   <p class="lead">승인이 완료된 분만 사용할 수 있습니다. 아래 버튼은 항상 최신 버전으로 연결됩니다.</p>
   <div class="dl">
-    <h2 style="margin:0 0 6px">FullAuto <span id="dlVer">v1.12</span></h2>
+    <h2 style="margin:0 0 6px">FullAuto <span id="dlVer">v1.13</span></h2>
     <p style="margin:0 0 20px">Windows 전용 · 최종 업데이트 <b id="dlDate">2026.10.30</b></p>
     <a class="btn" href="https://github.com/chadokhak/fullauto-site/releases/latest/download/fullauto.exe">최신 버전 다운로드</a>
     <p style="font-size:13px;margin-top:20px">일부 백신 프로그램이 새 프로그램을 경고할 수 있습니다. 문의가 필요하면 관리자에게 연락해 주세요.</p>
@@ -334,12 +354,10 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 
   <h2>업데이트 내역</h2>
   <div class="log">
-    <h3><span id="logVer">v1.12</span> <span style="color:var(--ac);font-size:14px">최신 버전</span></h3>
+    <h3><span id="logVer">v1.13</span> <span style="color:var(--ac);font-size:14px">최신 버전</span></h3>
     <ul id="logList">
-      <li>불타기 기능 추가 (선택 사용, 기본 꺼짐)</li>
-      <li>최소 증거금 500 USDT 미만 시 매매 시작 제한</li>
-      <li>새 버전이 나오면 보유 포지션 정리 후 거래 정지 및 공지 안내</li>
-      <li>사용 방법 버튼을 크게 변경하고 불타기 안내 문구 가독성 개선</li>
+      <li>잔고 표시를 3줄로 개선: 보유 잔고 / 진입금액 / 총 잔고(미실현 손익 실시간 반영)</li>
+      <li>실시간 포지션 카드에 진입금액 표시 추가</li>
     </ul>
   </div>
 
@@ -409,6 +427,15 @@ document.querySelectorAll('.rv').forEach(b=>b.addEventListener('click',()=>{
   document.getElementById('lbT').textContent='풀오토 후기';
   lbMsg.hidden=true; lbImg.hidden=false; lbImg.src=b.dataset.img;
   lb.classList.add('on');
+}));
+document.querySelectorAll('.gimg').forEach(b=>b.addEventListener('click',()=>{
+  document.getElementById('lbT').textContent=b.dataset.cap;
+  lbMsg.hidden=true; lbImg.hidden=false; lbImg.src=b.dataset.img;
+  lb.classList.add('on');
+}));
+document.querySelectorAll('.gtab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.gtab').forEach(x=>x.classList.toggle('on',x===t));
+  document.querySelectorAll('.gpane').forEach(p=>p.hidden=(p.id!==t.dataset.t));
 }));
 lbImg.addEventListener('error',()=>{lbImg.hidden=true;lbMsg.hidden=false;});
 const lbClose=()=>lb.classList.remove('on');
