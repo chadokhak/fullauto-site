@@ -33,19 +33,19 @@ main{margin-left:260px;padding:32px 40px 64px;max-width:1100px}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 h1{font-size:30px;margin:0 0 8px}
 h2{font-size:22px;margin:40px 0 16px}
-.lead{color:var(--sub);margin:0 0 28px}
+.lead{color:var(--sub);margin:0 0 28px;word-break:keep-all}
 .hero{padding:40px 0 44px}
 .hero h1{font-size:clamp(40px,7.4vw,92px);line-height:1.14;letter-spacing:-1px;font-weight:900}
 .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{color:var(--sub);font-size:clamp(16px,1.8vw,21px);max-width:720px;margin:22px 0 0}
+.hero p{color:var(--sub);font-size:clamp(14px,1.45vw,17px);line-height:1.8;margin:22px 0 0;word-break:keep-all}
 .chartbox{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:16px}
 #tvInfoBox{height:112px}
 #tvInfo{width:154%;height:172px;transform:scale(.65);transform-origin:0 0}
 #tvChart{height:480px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
-.card h3{margin:0 0 8px;font-size:18px}
-.card p{margin:0;color:var(--sub);font-size:15px}
+.card h3{margin:0 0 10px;font-size:18px;word-break:keep-all}
+.card p{margin:0;color:var(--sub);font-size:14.5px;line-height:1.8;word-break:keep-all;text-align:left}
 .btn{display:inline-block;padding:14px 28px;border-radius:12px;font-weight:700;text-decoration:none;font-size:16px;background:var(--ac);color:#04130c}
 ol.steps{list-style:none;padding:0;margin:0;counter-reset:s}
 ol.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px 18px 64px;margin-bottom:12px;position:relative}
@@ -71,9 +71,20 @@ ol.steps li small{display:block;color:var(--sub)}
 .profile .role{color:var(--sub);font-size:15px;letter-spacing:2px;font-weight:700}
 .profile .name{font-size:clamp(30px,5vw,44px);font-weight:900;margin:2px 0 22px}
 .profile .name span{color:var(--ac)}
-.profile .note{margin:0 0 22px;color:var(--sub);font-size:15px}
+.profile .kr{font-size:clamp(17px,2.4vw,22px);font-weight:800;margin-bottom:10px}
+.profile .note{margin:0 0 8px;color:var(--sub);font-size:15px}
 .awards{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.awards li{font-size:clamp(18px,2.6vw,24px);font-weight:800;padding:16px 18px;border-radius:14px;border:1px solid var(--line);border-left:5px solid var(--ac);background:var(--bg);line-height:1.4}
+.profile .hint{font-size:13px;color:var(--sub);margin:0 0 14px}
+.awards button.aw{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;font:inherit;font-size:clamp(18px,2.6vw,24px);font-weight:800;color:var(--tx);padding:16px 18px;border-radius:14px;border:1px solid var(--line);border-left:5px solid var(--ac);background:var(--bg);line-height:1.4;cursor:pointer;transition:.15s}
+.awards button.aw::after{content:"›";color:var(--sub);font-size:26px;line-height:1}
+.awards button.aw:hover{border-color:var(--ac);border-left-color:var(--ac)}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.lb.on{display:flex}
+.lb-in{position:relative;max-width:900px;width:100%;max-height:92vh;overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}
+.lb-in img{max-width:100%;border-radius:10px}
+.lb-in h3{margin:0 40px 12px 0;text-align:left;font-size:18px}
+.lb-in p{color:var(--sub);margin:20px 0}
+.lb-x{position:absolute;right:12px;top:10px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--tx);font-size:20px;cursor:pointer}
 
 /* 운영시간 / 주의 / FAQ */
 .hours{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin:16px 0 0}
@@ -150,8 +161,8 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 <!-- 메인 -->
 <section class="page" id="home">
   <div class="hero">
-    <h1>매매는 <em>풀오토</em>가,<br>설정은 단 한 번만.</h1>
-    <p>정해 둔 원칙에 따라 진입부터 청산까지 프로그램이 자동으로 진행하는 선물 자동매매 프로그램입니다.</p>
+    <h1>매매는 <em>[ 풀오토 ]</em>가,<br>설정은 단 한 번만.</h1>
+    <p>정해 둔 원칙에 따라 진입부터 청산까지<br>프로그램이 자동으로 진행하는 선물 자동매매 프로그램입니다.</p>
   </div>
 
   <div class="chartbox" id="tvChart"></div>
@@ -202,13 +213,15 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
   <p class="lead">아래 1:1 카카오톡 오픈채팅으로 문의해 주세요.</p>
   <div class="profile">
     <div class="role">TRADER</div>
-    <div class="name" style="margin-bottom:8px"><span>chadok</span></div>
+    <div class="name" style="margin-bottom:4px"><span>[ ChartDok ]</span></div>
+    <div class="kr">차트독학 - 차독</div>
     <p class="note">모든 거래는 풀오토에 셋팅된 지표로 거래되었습니다.</p>
+    <p class="hint">각 항목을 누르면 증빙 이미지를 볼 수 있습니다.</p>
     <ul class="awards">
-      <li>자동매매 프로그램 디렉터 수상</li>
-      <li>게이트 아이오 거래소 대회 2등 수상</li>
-      <li>비트겟 거래소 단체전 4등 수상</li>
-      <li>한국 코인 트레이더 자격증 보유</li>
+      <li><button type="button" class="aw" data-img="award1.png">자동매매 프로그램 디렉터 수상</button></li>
+      <li><button type="button" class="aw" data-img="award2.png">게이트 아이오 거래소 대회 2등 수상</button></li>
+      <li><button type="button" class="aw" data-img="award3.png">비트겟 거래소 단체전 4등 수상</button></li>
+      <li><button type="button" class="aw" data-img="award4.png">한국 코인 트레이더 자격증 보유</button></li>
     </ul>
   </div>
   <a class="kakao" href="https://open.kakao.com/o/s7LRMIUi" target="_blank" rel="noopener">
@@ -351,6 +364,7 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 </footer>
 </main>
 
+<div class="lb" id="lb"><div class="lb-in"><button class="lb-x" id="lbX" aria-label="닫기">×</button><h3 id="lbT"></h3><img id="lbImg" alt=""><p id="lbMsg" hidden>이미지 준비 중입니다.</p></div></div>
 <script>
 // ---- 페이지 전환 ----
 const pages=[...document.querySelectorAll('.page')];
@@ -367,6 +381,19 @@ function show(){
 window.addEventListener('hashchange',show);
 document.getElementById('burger').onclick=()=>side.classList.toggle('open');
 show();
+
+// ---- 수상 이미지 보기 ----
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbMsg=document.getElementById('lbMsg');
+document.querySelectorAll('.aw').forEach(b=>b.addEventListener('click',()=>{
+  document.getElementById('lbT').textContent=b.textContent;
+  lbMsg.hidden=true; lbImg.hidden=false; lbImg.src=b.dataset.img+'?v=1';
+  lb.classList.add('on');
+}));
+lbImg.addEventListener('error',()=>{lbImg.hidden=true;lbMsg.hidden=false;});
+const lbClose=()=>lb.classList.remove('on');
+document.getElementById('lbX').onclick=lbClose;
+lb.addEventListener('click',e=>{if(e.target===lb)lbClose();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lbClose();});
 
 // ---- 업데이트 정보 (update.json 수정으로 갱신) ----
 fetch('update.json?t='+Date.now()).then(r=>r.ok?r.json():null).then(d=>{
