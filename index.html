@@ -59,6 +59,8 @@ a{color:var(--ac2)}
 .menu a.item.on{border-color:var(--ac);color:var(--ac);box-shadow:inset 4px 0 0 var(--ac)}
 .menu a.item.must{border-color:var(--warn);color:var(--warn)}
 .menu a.item.must.on{box-shadow:inset 4px 0 0 var(--warn)}
+@media(max-height:1000px){.menu{gap:20px}.menu a.item{padding:16px 18px}}
+@media(max-height:820px){.menu{gap:14px;margin-top:12px}.menu a.item{padding:13px 18px}.side{padding:18px 16px}}
 .side .bottom{margin-top:auto;padding:12px;color:var(--sub);font-size:12px}
 
 /* 본문 */
@@ -80,6 +82,19 @@ h2{font-size:22px;margin:40px 0 16px}
 .hero p{color:var(--sub);font-size:clamp(14px,1.45vw,17px);line-height:1.8;margin:22px 0 0;word-break:keep-all}
 .chartbox{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:16px}
 #tvInfoBox{height:112px}
+
+.px{display:flex;align-items:center;gap:16px;padding:18px 24px}
+.px-ic{flex:none;width:52px;height:52px;border-radius:50%;background:#f7931a;color:#fff;font-weight:900;font-size:30px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(247,147,26,.4)}
+.px-l{display:flex;flex-direction:column;gap:4px;min-width:0}
+.px-sym,.px-price{font-size:clamp(26px,4.2vw,40px);font-weight:800;letter-spacing:-.5px;line-height:1.1;white-space:nowrap}
+.px-src{color:var(--sub);font-size:13px}
+.px-r{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.px-price{font-variant-numeric:tabular-nums}
+.px-chg{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+.px-chg.up,.px-price.up{color:var(--ac)}
+.px-chg.dn,.px-price.dn{color:var(--warn)}
+.px-chg{white-space:nowrap}
+@media(max-width:520px){.px{padding:14px 16px;gap:12px}.px-ic{width:42px;height:42px;font-size:24px}.px-sym,.px-price{font-size:23px}.px-chg{font-size:12.5px}.px-src{font-size:12px}}
 #tvInfo{width:154%;height:172px;transform:scale(.65);transform-origin:0 0}
 #tvChart{height:480px}
 .sec-title{font-size:clamp(34px,5vw,52px);font-weight:900;letter-spacing:-1px;margin:56px 0 26px;line-height:1.1;text-align:left}
@@ -112,6 +127,15 @@ ol.steps li small{display:block;color:var(--sub)}
 .tip{word-break:keep-all;border-left:4px solid var(--ac);background:var(--card);padding:14px 18px;border-radius:8px;margin-top:16px;color:var(--sub)}
 .warn{border-left-color:var(--warn)}
 .warn b{color:var(--warn)}
+
+#notice h1{color:var(--warn);letter-spacing:-.5px;text-shadow:0 0 26px rgba(255,107,107,.35)}
+#notice .lead{display:inline-block;color:var(--tx);font-weight:700;background:rgba(255,107,107,.1);border:1px solid rgba(255,107,107,.38);border-radius:12px;padding:11px 18px}
+ol.must li{font-size:16.5px;line-height:1.75;word-break:keep-all;border-left:5px solid var(--warn);padding:20px 22px 20px 76px}
+ol.must li::before{left:22px;top:17px;width:38px;height:38px;font-size:18px;background:var(--warn);color:#fff;box-shadow:0 4px 14px rgba(255,107,107,.42)}
+ol.must li b{color:var(--warn)}
+ol.must li.hot{background:rgba(255,107,107,.09);border-color:var(--warn);box-shadow:0 6px 22px rgba(255,107,107,.14)}
+#notice .tip.warn{font-size:17px;color:var(--tx);background:rgba(255,107,107,.1);border:1px solid rgba(255,107,107,.4);border-left-width:6px}
+@media(max-width:600px){ol.must li{font-size:15.5px;padding:16px 16px 16px 66px}ol.must li::before{left:16px;width:34px;height:34px;font-size:16px}}
 
 /* 거래소 카드 */
 .ex{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
@@ -232,6 +256,7 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
     <a class="item" href="#approve">승인 받는 방법</a>
     <a class="item" href="#contact">관리자 소개 및 문의</a>
     <a class="item" href="#api">API키 발급 방법</a>
+    <a class="item" href="#remote">원격 봇 연결 방법</a>
     <a class="item" href="#faq">자주 묻는 질문</a>
     <a class="item" href="#review">풀오토 후기</a>
     <a class="item" href="#download">풀오토 다운로드</a>
@@ -251,7 +276,14 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
   <p class="seo-intro">풀오토 트레이딩은 비트코인 선물거래와 코인선물거래를 위한 코인 자동매매 프로그램입니다. 비트코인·이더리움·리플·솔라나 USDT 무기한 선물을 설정한 조건에 따라 자동으로 매매하며 익절과 손절도 프로그램이 관리합니다. 선물거래는 원금 손실 위험이 있으며 수익을 보장하지 않습니다.</p>
 
   <div class="chartbox" id="tvChart"></div>
-  <div class="chartbox" id="tvInfoBox"><div id="tvInfo"></div></div>
+  <div class="chartbox" id="pxBox">
+    <div class="px">
+      <span class="px-ic" aria-hidden="true">₿</span>
+      <div class="px-l"><b class="px-sym">BTC/USDT</b><span class="px-src">비트코인 · Binance</span></div>
+      <div class="px-r"><b class="px-price" id="pxPrice">--</b><span class="px-chg" id="pxChg">&nbsp;</span></div>
+    </div>
+  </div>
+  <div class="chartbox" id="tvInfoBox" style="display:none"><div id="tvInfo"></div></div>
 
   <h2 class="sec-title"><span>주요 기능</span></h2>
   <div class="feat">
@@ -354,17 +386,35 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 <filter id="iglow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <filter id="ish" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".55"/></filter>
 </defs><rect width="400" height="190" fill="url(#ibg)"/><circle cx="270" cy="91" r="10" fill="#ff4d5e" opacity="0.30" filter="url(#ib)"/><circle cx="199" cy="93" r="12" fill="#ff4d5e" opacity="0.31" filter="url(#ib)"/><circle cx="174" cy="24" r="26" fill="#ff4d5e" opacity="0.14" filter="url(#ib)"/><circle cx="177" cy="156" r="10" fill="#ff4d5e" opacity="0.27" filter="url(#ib)"/><circle cx="44" cy="15" r="21" fill="#ff4d5e" opacity="0.27" filter="url(#ib)"/><circle cx="360" cy="15" r="22" fill="#ff4d5e" opacity="0.24" filter="url(#ib)"/><circle cx="325" cy="79" r="19" fill="#ff4d5e" opacity="0.18" filter="url(#ib)"/><circle cx="105" cy="115" r="15" fill="#4c8dff" opacity="0.15" filter="url(#ib)"/><circle cx="367" cy="100" r="23" fill="#ff4d5e" opacity="0.17" filter="url(#ib)"/><circle cx="57" cy="148" r="12" fill="#ff4d5e" opacity="0.18" filter="url(#ib)"/><circle cx="59" cy="148" r="19" fill="#ff4d5e" opacity="0.28" filter="url(#ib)"/><circle cx="207" cy="87" r="24" fill="#ff4d5e" opacity="0.22" filter="url(#ib)"/><circle cx="242" cy="107" r="24" fill="#ff4d5e" opacity="0.15" filter="url(#ib)"/><circle cx="140" cy="35" r="17" fill="#ff4d5e" opacity="0.18" filter="url(#ib)"/><g filter="url(#iglow)"><line x1="60" y1="34" x2="60" y2="64" stroke="#ff4d5e" stroke-width="2"/><rect x="54.5" y="40" width="11" height="16" rx="2" fill="#ff4d5e"/></g><g filter="url(#iglow)"><line x1="90" y1="50" x2="90" y2="80" stroke="#ff4d5e" stroke-width="2"/><rect x="84.5" y="56" width="11" height="16" rx="2" fill="#ff4d5e"/></g><g filter="url(#iglow)"><line x1="120" y1="60" x2="120" y2="84" stroke="#2ee59d" stroke-width="2"/><rect x="114.5" y="64" width="11" height="8" rx="2" fill="#2ee59d"/></g><g filter="url(#iglow)"><line x1="150" y1="58" x2="150" y2="94" stroke="#ff4d5e" stroke-width="2"/><rect x="144.5" y="64" width="11" height="24" rx="2" fill="#ff4d5e"/></g><g filter="url(#iglow)"><line x1="180" y1="82" x2="180" y2="112" stroke="#ff4d5e" stroke-width="2"/><rect x="174.5" y="88" width="11" height="16" rx="2" fill="#ff4d5e"/></g><g filter="url(#iglow)"><line x1="210" y1="92" x2="210" y2="116" stroke="#2ee59d" stroke-width="2"/><rect x="204.5" y="98" width="11" height="6" rx="2" fill="#2ee59d"/></g><g filter="url(#iglow)"><line x1="240" y1="92" x2="240" y2="130" stroke="#ff4d5e" stroke-width="2"/><rect x="234.5" y="98" width="11" height="24" rx="2" fill="#ff4d5e"/></g><g filter="url(#iglow)"><line x1="270" y1="116" x2="270" y2="146" stroke="#ff4d5e" stroke-width="2"/><rect x="264.5" y="122" width="11" height="16" rx="2" fill="#ff4d5e"/></g><polyline points="50,50 130,76 190,100 270,132 330,150" fill="none" stroke="#ff4d5e" stroke-width="3" stroke-dasharray="7 5" filter="url(#iglow)"/><g filter="url(#ish)"><rect x="286" y="34" width="86" height="40" rx="12" fill="#ff4d5e"/></g><text x="329" y="60" text-anchor="middle" font-size="19" font-weight="900" fill="#fff" font-family="Arial,sans-serif">SHORT</text><path d="M329 82 v42" stroke="#ff4d5e" stroke-width="6" stroke-linecap="round" filter="url(#iglow)"/><polygon points="313,120 345,120 329,146" fill="#ff4d5e" filter="url(#iglow)"/></svg></div><div class="ft-body"><div class="ft-n">09</div><h3>현물과 다른 <em>하락장 대응</em></h3><p>현물은 오를 때만 수익을 기대할 수 있지만, 선물은 양방향으로 매매가 가능해 하락장에서도 수익 기회를 노릴 수 있습니다.<span class="ft-note">(방향이 틀리면 손실도 커질 수 있습니다)</span></p></div></div>
-    <div class="ft"><div class="ft-img"><svg viewBox="0 0 400 190" role="img" aria-label="제작자의 수상 경력과 자격을 상징하는 트로피, 인증서, 월계수" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs>
-<linearGradient id="jbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a0d2c"/><stop offset="1" stop-color="#1c3470"/></linearGradient>
-<radialGradient id="jgold" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#fff6c4"/><stop offset=".35" stop-color="#f7c948"/><stop offset=".75" stop-color="#c8901a"/><stop offset="1" stop-color="#7a4f08"/></radialGradient>
-<radialGradient id="jsil" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#ffffff"/><stop offset=".4" stop-color="#cfd6e2"/><stop offset="1" stop-color="#6c7688"/></radialGradient>
-<linearGradient id="jscr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f1c2e"/><stop offset="1" stop-color="#07101c"/></linearGradient>
-<linearGradient id="jglass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".28"/><stop offset="1" stop-color="#ffffff" stop-opacity=".05"/></linearGradient>
-<filter id="jb" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7"/></filter>
-<filter id="jb2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2"/></filter>
-<filter id="jglow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-<filter id="jsh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".55"/></filter>
-</defs><rect width="400" height="190" fill="url(#jbg)"/><circle cx="42" cy="151" r="15" fill="#ff6b9d" opacity="0.26" filter="url(#jb)"/><circle cx="205" cy="117" r="24" fill="#4c8dff" opacity="0.21" filter="url(#jb)"/><circle cx="130" cy="62" r="16" fill="#ff6b9d" opacity="0.29" filter="url(#jb)"/><circle cx="251" cy="55" r="16" fill="#4c8dff" opacity="0.27" filter="url(#jb)"/><circle cx="392" cy="22" r="24" fill="#ff6b9d" opacity="0.23" filter="url(#jb)"/><circle cx="154" cy="98" r="21" fill="#4c8dff" opacity="0.27" filter="url(#jb)"/><circle cx="334" cy="176" r="23" fill="#ffd166" opacity="0.19" filter="url(#jb)"/><circle cx="196" cy="171" r="21" fill="#ff6b9d" opacity="0.30" filter="url(#jb)"/><circle cx="109" cy="67" r="11" fill="#ff6b9d" opacity="0.31" filter="url(#jb)"/><circle cx="30" cy="100" r="23" fill="#ffd166" opacity="0.23" filter="url(#jb)"/><circle cx="35" cy="138" r="23" fill="#4c8dff" opacity="0.25" filter="url(#jb)"/><circle cx="145" cy="134" r="21" fill="#ffd166" opacity="0.24" filter="url(#jb)"/><circle cx="288" cy="113" r="20" fill="#4c8dff" opacity="0.30" filter="url(#jb)"/><circle cx="103" cy="170" r="21" fill="#4c8dff" opacity="0.28" filter="url(#jb)"/><polygon points="200,92 439,75 439,109" fill="#ffe08a" opacity=".07"/><polygon points="200,92 426,174 412,205" fill="#ffe08a" opacity=".07"/><polygon points="200,92 373,259 348,281" fill="#ffe08a" opacity=".07"/><polygon points="200,92 290,315 258,325" fill="#ffe08a" opacity=".07"/><polygon points="200,92 192,332 158,328" fill="#ffe08a" opacity=".07"/><polygon points="200,92 95,308 66,291" fill="#ffe08a" opacity=".07"/><polygon points="200,92 16,246 -4,219" fill="#ffe08a" opacity=".07"/><polygon points="200,92 -31,158 -38,125" fill="#ffe08a" opacity=".07"/><polygon points="200,92 -38,59 -31,26" fill="#ffe08a" opacity=".07"/><polygon points="200,92 -4,-35 16,-62" fill="#ffe08a" opacity=".07"/><polygon points="200,92 66,-107 95,-124" fill="#ffe08a" opacity=".07"/><polygon points="200,92 158,-144 192,-148" fill="#ffe08a" opacity=".07"/><polygon points="200,92 258,-141 290,-131" fill="#ffe08a" opacity=".07"/><polygon points="200,92 348,-97 373,-75" fill="#ffe08a" opacity=".07"/><polygon points="200,92 412,-21 426,10" fill="#ffe08a" opacity=".07"/><rect x="40" y="30" width="6" height="10" rx="1.5" fill="#ff6b9d" transform="rotate(20 40 30)" opacity=".9"/><rect x="90" y="20" width="6" height="10" rx="1.5" fill="#ffd166" transform="rotate(-30 90 20)" opacity=".9"/><rect x="330" y="26" width="6" height="10" rx="1.5" fill="#4c8dff" transform="rotate(35 330 26)" opacity=".9"/><rect x="360" y="60" width="6" height="10" rx="1.5" fill="#2ee59d" transform="rotate(-15 360 60)" opacity=".9"/><rect x="28" y="110" width="6" height="10" rx="1.5" fill="#ffd166" transform="rotate(40 28 110)" opacity=".9"/><rect x="372" y="120" width="6" height="10" rx="1.5" fill="#ff6b9d" transform="rotate(-40 372 120)" opacity=".9"/><rect x="120" y="160" width="6" height="10" rx="1.5" fill="#4c8dff" transform="rotate(10 120 160)" opacity=".9"/><rect x="290" y="170" width="6" height="10" rx="1.5" fill="#ffd166" transform="rotate(-20 290 170)" opacity=".9"/><ellipse cx="148.0" cy="150.0" rx="12" ry="5.5" fill="#2ee59d" opacity=".85" transform="rotate(50 148.0 150.0)"/><ellipse cx="142.4" cy="133.0" rx="12" ry="5.5" fill="#2ee59d" opacity=".85" transform="rotate(42 142.4 133.0)"/><ellipse cx="137.3" cy="116.0" rx="12" ry="5.5" fill="#2ee59d" opacity=".85" transform="rotate(34 137.3 116.0)"/><ellipse cx="133.4" cy="99.0" rx="12" ry="5.5" fill="#2ee59d" opacity=".85" transform="rotate(26 133.4 99.0)"/><ellipse cx="130.8" cy="82.0" rx="12" ry="5.5" fill="#2ee59d" opacity=".85" transform="rotate(18 130.8 82.0)"/><ellipse cx="130.0" cy="65.0" rx="12" ry="5.5" fill="#2ee59d" opacity=".85" transform="rotate(10 130.0 65.0)"/><ellipse cx="131.0" cy="48.0" rx="12" ry="5.5" fill="#2ee59d" opacity=".85" transform="rotate(2 131.0 48.0)"/><ellipse cx="252.0" cy="150.0" rx="12" ry="5.5" fill="#2ee59d" opacity=".85" transform="rotate(-50 252.0 150.0)"/><ellipse cx="257.6" cy="133.0" rx="12" ry="5.5" fill="#2ee59d" opacity=".85" transform="rotate(-42 257.6 133.0)"/><ellipse cx="262.7" cy="116.0" rx="12" ry="5.5" fill="#2ee59d" opacity=".85" transform="rotate(-34 262.7 116.0)"/><ellipse cx="266.6" cy="99.0" rx="12" ry="5.5" fill="#2ee59d" opacity=".85" transform="rotate(-26 266.6 99.0)"/><ellipse cx="269.2" cy="82.0" rx="12" ry="5.5" fill="#2ee59d" opacity=".85" transform="rotate(-18 269.2 82.0)"/><ellipse cx="270.0" cy="65.0" rx="12" ry="5.5" fill="#2ee59d" opacity=".85" transform="rotate(-10 270.0 65.0)"/><ellipse cx="269.0" cy="48.0" rx="12" ry="5.5" fill="#2ee59d" opacity=".85" transform="rotate(-2 269.0 48.0)"/><g filter="url(#jsh)"><path d="M158 34 h84 v38 a42 40 0 0 1 -84 0 z" fill="url(#jgold)"/><path d="M158 44 h-22 a9 9 0 0 0 -9 9 c0 20 16 30 34 30" fill="none" stroke="#d9a21e" stroke-width="7" stroke-linecap="round"/><path d="M242 44 h22 a9 9 0 0 1 9 9 c0 20 -16 30 -34 30" fill="none" stroke="#d9a21e" stroke-width="7" stroke-linecap="round"/><rect x="193" y="108" width="14" height="22" fill="#b8860b"/><rect x="168" y="130" width="64" height="14" rx="5" fill="url(#jgold)"/><rect x="160" y="144" width="80" height="12" rx="4" fill="#8a5a00"/></g><ellipse cx="180" cy="56" rx="9" ry="20" fill="#fff" opacity=".4" transform="rotate(14 180 56)"/><polygon points="200.0,50.0 204.2,60.2 215.2,61.1 206.8,68.2 209.4,78.9 200.0,73.2 190.6,78.9 193.2,68.2 184.8,61.1 195.8,60.2" fill="#fff6c4"/><g filter="url(#jsh)"><rect x="18" y="64" width="86" height="66" rx="10" fill="#f4f6fb"/></g><rect x="28" y="76" width="50" height="6" rx="3" fill="#8b96ad"/><rect x="28" y="90" width="66" height="5" rx="2.5" fill="#c3cad8"/><rect x="28" y="101" width="58" height="5" rx="2.5" fill="#c3cad8"/><circle cx="84" cy="116" r="9" fill="#d7263d"/><polygon points="78,123 84,134 90,123" fill="#d7263d"/><g filter="url(#jsh)"><rect x="296" y="64" width="86" height="66" rx="10" fill="#17408f"/></g><rect x="296" y="64" width="86" height="66" rx="10" fill="url(#jglass)"/><circle cx="318" cy="88" r="10" fill="#cfe0ff"/><path d="M304 114 c3 -12 30 -12 34 0 z" fill="#cfe0ff"/><rect x="336" y="80" width="38" height="5" rx="2.5" fill="#fff" opacity=".8"/><rect x="336" y="92" width="30" height="5" rx="2.5" fill="#fff" opacity=".5"/><polyline points="338,112 346,120 362,104" fill="none" stroke="#2ee59d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ft-body"><div class="ft-n">10</div><h3>만든 사람의 <em>커리어 확인</em></h3><p>프로그램을 만든 운영자의 수상 경력과 자격을<br><a class="nw" href="#contact">관리자 소개 및 문의</a>에서 직접 확인할 수 있습니다.</p></div></div>
+    <div class="ft"><div class="ft-img"><svg viewBox="0 0 400 190" role="img" aria-label="폰의 텔레그램 봇으로 매매를 시작하고 정지하는 화면" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs>
+<linearGradient id="kbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06142b"/><stop offset="1" stop-color="#0b3040"/></linearGradient>
+<linearGradient id="kgrn" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#46e8a4"/><stop offset="1" stop-color="#14a66b"/></linearGradient>
+<linearGradient id="kred" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff7a86"/><stop offset="1" stop-color="#d93a4f"/></linearGradient>
+<filter id="kb" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+<filter id="ksh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".55"/></filter>
+</defs><rect width="400" height="190" fill="url(#kbg)"/>
+<circle cx="70" cy="40" r="30" fill="#2ee59d" opacity=".18" filter="url(#kb)"/><circle cx="340" cy="150" r="34" fill="#4c8dff" opacity=".2" filter="url(#kb)"/><circle cx="200" cy="170" r="30" fill="#2ee59d" opacity=".12" filter="url(#kb)"/>
+<g filter="url(#ksh)"><rect x="8" y="34" width="118" height="62" rx="12" fill="#f4f7fb"/></g>
+<circle cx="25" cy="52" r="7" fill="#2ee59d"/><path d="M21.5 52 l2.5 2.6 l4.5 -5.2" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="37" y="56" font-size="10" font-weight="800" fill="#0b1220" font-family="sans-serif">포지션 진입 완료</text>
+<text x="17" y="73" font-size="9" fill="#46536b" font-family="sans-serif">BTC · 현재가 · 진입가</text>
+<text x="17" y="87" font-size="9" fill="#46536b" font-family="sans-serif">거래소 확인 바랍니다</text>
+<g transform="translate(15 0)"><g filter="url(#ksh)"><rect x="117" y="12" width="166" height="200" rx="22" fill="#0a1220" stroke="#3b4a66" stroke-width="2"/></g>
+<rect x="125" y="22" width="150" height="190" rx="16" fill="#0f1c2e"/>
+<rect x="125" y="22" width="150" height="22" rx="0" fill="#17304a"/>
+<text x="200" y="37" text-anchor="middle" font-size="11.5" font-weight="800" fill="#fff" font-family="sans-serif">풀오토 원격</text>
+<rect x="228" y="50" width="38" height="18" rx="9" fill="#2b8a5f"/><text x="247" y="63" text-anchor="middle" font-size="11" font-weight="800" fill="#fff" font-family="sans-serif">!봇</text>
+<rect x="132" y="74" width="132" height="76" rx="10" fill="#1d2c43"/>
+<text x="140" y="89" font-size="10.5" font-weight="800" fill="#fff" font-family="sans-serif">어떤 걸 도와드릴까요?</text>
+<text x="140" y="104" font-size="10" fill="#cfe0ff" font-family="sans-serif">1. 정지</text><text x="140" y="116" font-size="10" fill="#cfe0ff" font-family="sans-serif">2. 전체청산</text>
+<text x="140" y="128" font-size="10" fill="#cfe0ff" font-family="sans-serif">3. 시작</text><text x="140" y="140" font-size="10" fill="#cfe0ff" font-family="sans-serif">4. 상태</text>
+<rect x="132" y="158" width="62" height="20" rx="8" fill="#2b8a5f"/><text x="163" y="172" text-anchor="middle" font-size="11" font-weight="800" fill="#fff" font-family="sans-serif">예</text>
+<rect x="202" y="158" width="62" height="20" rx="8" fill="#3a4660"/><text x="233" y="172" text-anchor="middle" font-size="11" font-weight="800" fill="#fff" font-family="sans-serif">아니요</text></g>
+<g filter="url(#ksh)"><circle cx="338" cy="56" r="25" fill="url(#kgrn)"/></g><polygon points="331,44 331,68 350,56" fill="#fff"/>
+<text x="338" y="98" text-anchor="middle" font-size="12" font-weight="800" fill="#bff5dc" font-family="sans-serif">시작</text>
+<g filter="url(#ksh)"><circle cx="338" cy="134" r="25" fill="url(#kred)"/></g><rect x="327" y="123" width="22" height="22" rx="4" fill="#fff"/>
+<text x="338" y="176" text-anchor="middle" font-size="12" font-weight="800" fill="#ffc3ca" font-family="sans-serif">정지</text>
+</svg></div><div class="ft-body"><div class="ft-n">10</div><h3>언제 어디서든 <em>원격 시작·정지</em></h3><p>밖에서도 폰의 텔레그램 봇으로 매매를 시작하고 정지할 수 있고, 진입 알림도 바로 받아볼 수 있습니다.<span class="ft-note"><a class="nw" href="#remote">원격 봇 연결 방법 보기</a></span></p></div></div>
   </div>
   <div class="tip">선물거래는 원금 손실 위험이 있으며, 풀오토는 매매를 보조하는 도구로 수익을 보장하지 않습니다.</div>
 </section>
@@ -375,8 +425,7 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
   <p class="lead">아래 DEEPCOIN 로고를 누르면 안내된 링크로 바로 가입할 수 있습니다.</p>
 
   <div class="dc">
-    <!-- href="#" 를 딥코인 가입 링크로 바꾸세요 -->
-    <a class="dc-logo" href="#" target="_blank" rel="noopener" aria-label="DEEPCOIN 가입하기">
+    <a class="dc-logo" href="https://s.deepcoin.com/9608004" target="_blank" rel="noopener" aria-label="DEEPCOIN 가입하기">
       <img src="data:image/png;base64,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" alt="DEEPCOIN 로고" width="120" height="120">
       <span class="dc-name">DEEPCOIN</span>
     </a>
@@ -529,23 +578,49 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
   <div class="tip">후기는 개인의 사례이며 수익을 보장하지 않습니다.</div>
 </section>
 
+<!-- 원격 봇 연결 -->
+<section class="page" id="remote">
+  <h1>원격 봇 연결 방법</h1>
+  <p class="lead">폰의 텔레그램으로 매매를 정지·시작하고, 진입 알림을 받는 선택 기능입니다. 봇은 내가 직접 만들며 1분 정도 걸립니다.</p>
+  <ol class="steps">
+    <li>텔레그램에서 <b>BotFather</b>를 검색해서 엽니다.<small>이름이 정확히 BotFather이고 파란 인증 표시가 있는 계정만 사용하세요.</small></li>
+    <li><b>/newbot</b> 을 보내고, 봇 이름을 물으면 <b>풀오토 원격</b> 이라고 입력합니다.<small>이어서 봇 아이디를 물으면 영어로 쓰고 끝을 <b>bot</b>으로 맞춥니다. 예: fullauto_hong_bot</small></li>
+    <li>완료 메시지에 나오는 긴 <b>토큰</b>(숫자:영문 글자)을 복사합니다.<small>토큰은 비밀번호와 같습니다. 다른 사람에게 보내지 마세요. 풀오토 관리자도 토큰을 절대 묻지 않습니다.</small></li>
+    <li>풀오토 화면의 <b>「텔레그램 원격」</b> 칸에 토큰을 붙여 넣고 다른 칸을 누릅니다.<small>그러면 화면에 6자리 연결 코드가 표시됩니다.</small></li>
+    <li>방금 만든 봇 대화창을 열고 <b>시작(Start)</b>을 누른 뒤, 화면에 표시된 <b>6자리 숫자</b>를 보냅니다.<small>「연결되었습니다」라는 답이 오면 끝입니다. 다른 폰으로 바꿀 때는 「연결 초기화」를 누르세요.</small></li>
+    <li>이제 봇 대화창에 <b>!봇</b> 을 입력하면 메뉴가 나옵니다. 번호를 누르면 한 번 더 확인하고, <b>예</b>를 눌러야 실행됩니다.</li>
+  </ol>
+
+  <h2>메뉴 설명</h2>
+  <ol class="steps">
+    <li><b>정지</b> — 신규 진입만 멈춥니다. 열려 있는 포지션의 익절·손절 감시는 계속합니다.</li>
+    <li><b>전체청산</b> — 열려 있는 포지션을 모두 시장가로 청산하고, 신규 진입을 중단합니다.</li>
+    <li><b>시작</b> — 신규 진입을 다시 시작합니다. 프로그램이 정지 상태라면 매매를 시작합니다.</li>
+    <li><b>상태</b> — 잔고와 보유 포지션을 바로 알려 줍니다.</li>
+  </ol>
+  <div class="tip">포지션에 진입하거나 청산되면 자동으로 알림이 옵니다. 알림에는 종목, 현재가, 진입가가 표시되며 자세한 내용은 거래소에서 확인해 주세요.</div>
+  <div class="tip warn"><b>풀오토가 켜져 있는 PC가 인터넷에 연결되어 있어야 합니다.</b> PC가 꺼져 있으면 명령이 전달되지 않으니, 포지션이 열려 있을 때는 거래소 앱에서도 상태를 확인하세요. 봇 하나는 프로그램 하나에만 연결해 주세요.</div>
+</section>
+
 <!-- 다운로드 -->
 <section class="page" id="download">
   <h1>풀오토 다운로드</h1>
   <p class="lead">승인이 완료된 분만 사용할 수 있습니다. 아래 버튼은 항상 최신 버전으로 연결됩니다.</p>
   <div class="dl">
-    <h2 style="margin:0 0 6px">FullAuto <span id="dlVer">v1.14</span></h2>
-    <p style="margin:0 0 20px">Windows 전용 · 최종 업데이트 <b id="dlDate">2026.10.30</b></p>
+    <h2 style="margin:0 0 6px">FullAuto <span id="dlVer">v1.15</span></h2>
+    <p style="margin:0 0 20px">Windows 전용 · 최종 업데이트 <b id="dlDate">2026.10.31</b></p>
     <a class="btn" href="https://github.com/chadokhak/fullauto-site/releases/latest/download/fullauto.exe">최신 버전 다운로드</a>
     <p style="font-size:13px;margin-top:20px">일부 백신 프로그램이 새 프로그램을 경고할 수 있습니다. 문의가 필요하면 관리자에게 연락해 주세요.</p>
   </div>
 
   <h2>업데이트 내역</h2>
   <div class="log">
-    <h3><span id="logVer">v1.14</span> <span style="color:var(--ac);font-size:14px">최신 버전</span></h3>
+    <h3><span id="logVer">v1.15</span> <span style="color:var(--ac);font-size:14px">최신 버전</span></h3>
     <ul id="logList">
-      <li>DEEPCOIN 거래소 지원 추가 (거래소 선택 + API 비밀번호 입력)</li>
-      <li>DEEPCOIN은 소액으로 먼저 테스트한 뒤 사용을 권장</li>
+      <li>텔레그램 원격 기능 추가 (폰에서 !봇으로 정지·전체청산·시작·상태 확인, 진입·청산 알림)</li>
+      <li>화면 디자인 개편 (둥근 카드, 스위치형 설정, 잔고 카드)</li>
+      <li>청산 사유를 익절(보호선) / 청산(추세이탈)로 나누어 표시</li>
+      <li>같은 API 키로 풀오토를 중복 실행하지 못하게 방지</li>
     </ul>
   </div>
 
@@ -562,15 +637,15 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 <section class="page" id="notice">
   <h1>※필독 유의사항</h1>
   <p class="lead">프로그램을 사용하기 전에 반드시 읽어 주세요.</p>
-  <ol class="steps">
+  <ol class="steps must">
     <li>본 프로그램은 매매를 보조하는 도구이며, 수익을 보장하지 않습니다.</li>
     <li>선물 거래는 원금 손실 및 청산 위험이 있으며, 모든 투자 판단과 결과의 책임은 사용자 본인에게 있습니다.</li>
     <li>과거 성과나 테스트 결과는 미래의 결과를 보장하지 않습니다.</li>
     <li>API 키는 본인만 관리해야 하며, 출금 권한은 부여하지 마세요.</li>
-    <li>풀오토는 증거금이 500 USDT 미만이면 최소 증거금 부족으로 거래가 멈출 수 있습니다. 최소 500 USDT 이상을 유지해 주세요.<br><b>증거금 부족으로 인한 손실은 사용자 본인의 사유이며, 운영자는 이에 대해 책임을 지지 않습니다.</b></li>
-    <li><b>더 이상 게이트아이오 거래소 연동은 API KEY 지원 문제로 지원하지 않습니다.</b></li>
+    <li class="hot">풀오토는 증거금이 500 USDT 미만이면 최소 증거금 부족으로 거래가 멈출 수 있습니다. 최소 500 USDT 이상을 유지해 주세요.<br><b>증거금 부족으로 인한 손실은 사용자 본인의 사유이며, 운영자는 이에 대해 책임을 지지 않습니다.</b></li>
+    <li class="hot"><b>더 이상 게이트아이오 거래소 연동은 API KEY 지원 문제로 지원하지 않습니다.</b></li>
     <li>프로그램의 불법 복제 및 무단 도용은 형사처벌을 받을 수 있습니다.</li>
-    <li>관리자를 사칭하는 사람이 있습니다. 풀오토 관리자와 매니저는 절대 개인정보를 묻거나 요구하지 않으며, 사칭하는 사람이 나타나면 바로 관리자에게 알려 주세요.</li>
+    <li>관리자를 사칭하는 사람이 있습니다. 풀오토 관리자와 매니저는 절대 개인정보를 묻거나 요구하지 않으며,<br>사칭하는 사람이 나타나면 바로 관리자에게 알려 주세요.</li>
   </ol>
   <div class="tip warn"><b>고배율 고비중은 청산의 지름길입니다.</b> 무리한 매매는 삼가 주세요.</div>
 </section>
@@ -643,7 +718,7 @@ fetch('update.json?t='+Date.now()).then(r=>r.ok?r.json():null).then(d=>{
 }).catch(()=>{});
 
 // ---- 트레이딩뷰 위젯 ----
-const SYMBOL='GATEIO:BTCUSDT';   // 바꾸려면 여기만 수정
+const SYMBOL='BINANCE:BTCUSDT';   // 바꾸려면 여기만 수정
 const dark=!window.matchMedia||!window.matchMedia('(prefers-color-scheme:light)').matches;
 function tv(el,src,cfg){
   const box=document.createElement('div');box.className='tradingview-widget-container';
@@ -653,13 +728,36 @@ function tv(el,src,cfg){
   const s=document.createElement('script');s.src=src;s.async=true;s.text=JSON.stringify(cfg);
   box.appendChild(inner);box.appendChild(s);el.appendChild(box);
 }
-tv(document.getElementById('tvInfo'),
-  'https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js',
-  {symbol:SYMBOL,width:'100%',locale:'kr',colorTheme:dark?'dark':'light',isTransparent:true});
 tv(document.getElementById('tvChart'),
   'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js',
   {autosize:true,symbol:SYMBOL,interval:'15',timezone:'Asia/Seoul',theme:dark?'dark':'light',
    style:'1',locale:'kr',allow_symbol_change:false,hide_side_toolbar:true,calendar:false,support_host:'https://www.tradingview.com'});
+
+// ---- 바이낸스 실시간 가격 (실패 시 트레이딩뷰 박스로 대체) ----
+let pxFail=0,pxTimer=null;
+const pxFmt=n=>n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+function pxFallback(){
+  clearInterval(pxTimer);
+  document.getElementById('pxBox').style.display='none';
+  document.getElementById('tvInfoBox').style.display='';
+  tv(document.getElementById('tvInfo'),
+    'https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js',
+    {symbol:SYMBOL,width:'100%',locale:'kr',colorTheme:dark?'dark':'light',isTransparent:true});
+}
+function pxTick(){
+  if(document.hidden)return;
+  fetch('https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT',{cache:'no-store'})
+    .then(r=>{if(!r.ok)throw 0;return r.json()})
+    .then(d=>{
+      const last=+d.lastPrice,chg=+d.priceChange,pct=+d.priceChangePercent;
+      if(!isFinite(last))throw 0;
+      const up=chg>=0,pe=document.getElementById('pxPrice'),ce=document.getElementById('pxChg');
+      pe.textContent=pxFmt(last);pe.className='px-price '+(up?'up':'dn');
+      ce.textContent=(up?'▲ ':'▼ ')+pxFmt(Math.abs(chg))+' ('+(up?'+':'')+pct.toFixed(2)+'%)';
+      ce.className='px-chg '+(up?'up':'dn');pxFail=0;
+    }).catch(()=>{if(++pxFail>=3)pxFallback();});
+}
+pxTick();pxTimer=setInterval(pxTick,3000);
 </script>
 </body>
 </html>
