@@ -607,7 +607,7 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
   <h1>풀오토 다운로드</h1>
   <p class="lead">승인이 완료된 분만 사용할 수 있습니다. 아래 버튼은 항상 최신 버전으로 연결됩니다.</p>
   <div class="dl">
-    <h2 style="margin:0 0 6px">FullAuto <span id="dlVer">v1.15</span></h2>
+    <h2 style="margin:0 0 6px">FullAuto <span id="dlVer">v1.22</span></h2>
     <p style="margin:0 0 20px">Windows 전용 · 최종 업데이트 <b id="dlDate">2026.10.31</b></p>
     <a class="btn" href="https://github.com/chadokhak/fullauto-site/releases/latest/download/fullauto.exe">최신 버전 다운로드</a>
     <p style="font-size:13px;margin-top:20px">일부 백신 프로그램이 새 프로그램을 경고할 수 있습니다. 문의가 필요하면 관리자에게 연락해 주세요.</p>
@@ -615,12 +615,24 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 
   <h2>업데이트 내역</h2>
   <div class="log">
-    <h3><span id="logVer">v1.15</span> <span style="color:var(--ac);font-size:14px">최신 버전</span></h3>
+    <h3><span id="logVer">v1.22</span> <span style="color:var(--ac);font-size:14px">최신 버전</span></h3>
     <ul id="logList">
       <li>텔레그램 원격 기능 추가 (폰에서 !봇으로 정지·전체청산·시작·상태 확인, 진입·청산 알림)</li>
       <li>화면 디자인 개편 (둥근 카드, 스위치형 설정, 잔고 카드)</li>
       <li>청산 사유를 익절(보호선) / 청산(추세이탈)로 나누어 표시</li>
       <li>같은 API 키로 풀오토를 중복 실행하지 못하게 방지</li>
+      <li>매매기록에 진입 시간·청산 시간 표시 (불타기 시 처음 진입가와 평균가 함께 표시)</li>
+      <li>진입 직후 포지션을 못 읽어도 30초 안에 자동으로 이어받아 감시</li>
+      <li>로그·매매기록 파일 자동 저장 (fullauto_log.txt / fullauto_trades.csv)</li>
+      <li>텔레그램 원격을 켜고 끄는 스위치로 변경 (꺼두면 토큰 입력칸이 숨겨짐)</li>
+      <li>실시간 진행 로그 창을 더 크게 확대</li>
+      <li>API 키 입력칸을 켜고 끄는 스위치로 변경 (꺼두면 매매 설정이 간단하게 보임)</li>
+      <li>화면 세로 길이를 줄여 작은 모니터에서도 한눈에 보이도록 개선</li>
+      <li>화면 배치 개편 (왼쪽 매매 설정, 오른쪽 공지·사용방법·텔레그램·매매 시작 버튼)</li>
+      <li>공지사항·사용 방법·수익/손실 기준·매매기록을 새 창으로 열도록 변경</li>
+      <li>텔레그램 원격 스위치를 매매 설정 안으로 이동, 실시간 포지션/로그 칸 크기 1:1로 조정</li>
+      <li>API 키·텔레그램 봇 토큰을 새 입력 창에서 입력하도록 변경 (확인 후 창을 닫아도 유지, 스위치를 끄면 삭제)</li>
+      <li>프로그램을 처음 켰을 때 화면 크기를 조정해 로그칸까지 모두 보이도록 개선</li>
     </ul>
   </div>
 
