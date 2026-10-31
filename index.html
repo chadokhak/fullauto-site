@@ -143,7 +143,7 @@ ol.must li{font-size:16.5px;line-height:1.75;word-break:keep-all;border-left:5px
 ol.must li::before{left:22px;top:17px;width:38px;height:38px;font-size:18px;background:var(--warn);color:#fff;box-shadow:0 4px 14px rgba(255,107,107,.42)}
 ol.must li b{color:var(--warn)}
 ol.must li.hot{background:rgba(255,107,107,.09);border-color:var(--warn);box-shadow:0 6px 22px rgba(255,107,107,.14)}
-#notice .tip.warn{font-size:17px;color:var(--tx);background:rgba(255,107,107,.1);border:1px solid rgba(255,107,107,.4);border-left-width:6px}
+#signal .tip.warn,#notice .tip.warn{font-size:17px;color:var(--tx);background:rgba(255,107,107,.1);border:1px solid rgba(255,107,107,.4);border-left-width:6px}
 @media(max-width:600px){ol.must li{font-size:15.5px;padding:16px 16px 16px 66px}ol.must li::before{left:16px;width:34px;height:34px;font-size:16px}}
 
 /* 거래소 카드 */
@@ -233,6 +233,11 @@ details.q .a img{display:block;width:100%;max-width:720px;margin-top:14px;border
 .rv img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border:0;border-radius:0}
 .rv.fit img{object-fit:contain;object-position:center}
 
+.tgbtn{display:block;background:#229ed9;color:#fff;border-radius:16px;padding:22px;text-decoration:none;font-weight:800;font-size:18px;text-align:center;margin:18px 0}
+.tgbtn small{display:block;font-weight:500;margin-top:6px;opacity:.9;word-break:break-all}
+.sigmsg{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 22px;max-width:340px;margin:14px 0;line-height:1.6}
+.sigmsg b{font-size:17px}
+.sigmsg .sm-s{color:var(--sub);font-size:13px;margin-top:10px}
 .dl{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:44px 20px}
 .dl p{color:var(--sub)}
 .disc ol{padding-left:20px;color:var(--sub);font-size:14px}
@@ -265,6 +270,7 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
     <a class="item" href="#approve">승인 받는 방법</a>
     <a class="item" href="#contact">관리자 소개 및 문의</a>
     <a class="item" href="#api">API키 발급 방법</a>
+    <a class="item" href="#signal">신호 알림 채널</a>
     <a class="item" href="#remote">원격 봇 연결 방법</a>
     <a class="item" href="#faq">자주 묻는 질문</a>
     <a class="item" href="#review">풀오토 후기</a>
@@ -587,6 +593,46 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
   <div class="tip">후기는 개인의 사례이며 수익을 보장하지 않습니다.</div>
 </section>
 
+<!-- 신호 알림 채널 -->
+<section class="page" id="signal">
+  <h1>신호 알림 채널</h1>
+  <p class="lead">풀오토의 매매 조건이 성립하면<br>텔레그램 채널로 알림이 전달됩니다.</p>
+  <a class="tgbtn" href="https://t.me/+kh7ppvOMC1ZmNzQ1" target="_blank" rel="noopener">
+    텔레그램 알림 채널 입장하기
+    <small>https://t.me/+kh7ppvOMC1ZmNzQ1</small>
+  </a>
+  <h2>이렇게 알림이 옵니다</h2>
+  <div class="sigmsg">
+    <b>BTC (5분봉)</b><br>
+    신호 포착<br>
+    🚀🚀🚀
+    <div class="sm-s">풀오토 공식 홈페이지<br>https://fullauto.kr</div>
+  </div>
+  <p>알림에는 종목과 봉 주기만 표시됩니다.<br>BTC · ETH · XRP · SOL을<br>5분봉 · 15분봉 · 1시간봉으로 확인합니다.</p>
+  <div class="tip"><b>같이 진입되려면 이렇게 설정하세요</b><br>
+    1. 알림에 적힌 <b>봉 주기</b>와<br>
+    같은 봉으로 설정하세요.<br>
+    5분봉 알림은 5분봉으로 설정한<br>
+    분만 같이 진입됩니다.<br>
+    2. 풀오토를 <b>미리 켜 두세요.</b><br>
+    신호가 나온 뒤에 켜면<br>
+    그 신호에는 진입하지 않습니다.<br>
+    3. 감시 종목에서<br>
+    알림 종목을 선택해 두세요.
+  </div>
+  <div class="tip warn"><b>꼭 알아 두세요</b><br>
+    알림은 참고용이며,<br>
+    매매는 각자의 풀오토가 직접 판단합니다.<br>
+    거래소마다 캔들 값이 조금 달라서<br>
+    진입 시점이나 진입 여부가<br>
+    알림과 다를 수 있습니다.<br>
+    이미 포지션이 있거나 증거금이 부족하면<br>
+    진입하지 않습니다.<br>
+    선물거래는 원금 손실 위험이 있으며<br>
+    수익을 보장하지 않습니다.
+  </div>
+</section>
+
 <!-- 원격 봇 연결 -->
 <section class="page" id="remote">
   <h1>원격 봇 연결 방법</h1>
@@ -686,9 +732,7 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 <footer>
   <div class="links">
     <a class="chip kakao-c" href="https://open.kakao.com/o/gT0CNIUi" target="_blank" rel="noopener">카카오톡 오픈채팅방</a>
-    <!-- 텔레그램 방이 열리면 아래 줄을 이렇게 바꾸세요:
-         <a class="chip" href="텔레그램링크" target="_blank" rel="noopener">텔레그램</a> -->
-    <span class="chip off">텔레그램 <em>오픈 예정</em></span>
+    <a class="chip" href="https://t.me/+kh7ppvOMC1ZmNzQ1" target="_blank" rel="noopener">텔레그램 알림 채널</a>
     <a class="chip" href="#notice">※필독 유의사항</a>
   </div>
   © FullAuto · fullauto.kr
