@@ -124,6 +124,7 @@ ol.steps{list-style:none;padding:0;margin:0;counter-reset:s}
 ol.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px 18px 64px;margin-bottom:12px;position:relative}
 ol.steps li::before{content:counter(s);position:absolute;left:18px;top:16px;width:32px;height:32px;border-radius:50%;background:var(--ac);color:#04130c;font-weight:800;display:flex;align-items:center;justify-content:center}
 ol.steps li small{display:block;color:var(--sub)}
+ol.steps li img.shot{display:block;width:100%;max-width:560px;margin-top:14px;border-radius:12px;border:1px solid var(--line)}
 .tip{word-break:keep-all;border-left:4px solid var(--ac);background:var(--card);padding:14px 18px;border-radius:8px;margin-top:16px;color:var(--sub)}
 .warn{border-left-color:var(--warn)}
 .warn b{color:var(--warn)}
@@ -583,12 +584,14 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
   <h1>원격 봇 연결 방법</h1>
   <p class="lead">폰의 텔레그램으로 매매를 정지·시작하고, 진입 알림을 받는 선택 기능입니다. 봇은 내가 직접 만들며 1분 정도 걸립니다.</p>
   <ol class="steps">
-    <li>텔레그램에서 <b>BotFather</b>를 검색해서 엽니다.<small>이름이 정확히 BotFather이고 파란 인증 표시가 있는 계정만 사용하세요.</small></li>
-    <li><b>/newbot</b> 을 보내고, 봇 이름을 물으면 <b>풀오토 원격</b> 이라고 입력합니다.<small>이어서 봇 아이디를 물으면 영어로 쓰고 끝을 <b>bot</b>으로 맞춥니다. 예: fullauto_hong_bot</small></li>
-    <li>완료 메시지에 나오는 긴 <b>토큰</b>(숫자:영문 글자)을 복사합니다.<small>토큰은 비밀번호와 같습니다. 다른 사람에게 보내지 마세요. 풀오토 관리자도 토큰을 절대 묻지 않습니다.</small></li>
-    <li>풀오토 화면의 <b>「텔레그램 원격」</b> 칸에 토큰을 붙여 넣고 다른 칸을 누릅니다.<small>그러면 화면에 6자리 연결 코드가 표시됩니다.</small></li>
-    <li>방금 만든 봇 대화창을 열고 <b>시작(Start)</b>을 누른 뒤, 화면에 표시된 <b>6자리 숫자</b>를 보냅니다.<small>「연결되었습니다」라는 답이 오면 끝입니다. 다른 폰으로 바꿀 때는 「연결 초기화」를 누르세요.</small></li>
-    <li>이제 봇 대화창에 <b>!봇</b> 을 입력하면 메뉴가 나옵니다. 번호를 누르면 한 번 더 확인하고, <b>예</b>를 눌러야 실행됩니다.</li>
+    <li>텔레그램에서 <b>BotFather</b>를 검색해서 열고 <b>시작</b>을 누릅니다.<small>이름이 정확히 BotFather이고 파란 인증 표시가 있는 계정만 사용하세요.</small><img class="shot" src="guide_images/tg_step1.png" alt="BotFather 검색 후 시작" loading="lazy"></li>
+    <li>대화창의 <b>/newbot</b> 을 누릅니다.<img class="shot" src="guide_images/tg_step2.png" alt="newbot 누르기" loading="lazy"></li>
+    <li>봇 이름을 물으면 <b>풀오토 원격</b> 이라고 입력하고, 이어서 봇 아이디를 입력합니다.<small>봇 아이디는 <b>영어와 숫자만</b> 쓸 수 있고 끝이 반드시 <b>bot</b> 이어야 합니다. 가운데에 본인 거래소 UID를 넣으면 겹치지 않습니다. 예: fullauto_remote_본인UID_bot<br>「username is invalid」가 나오면 한글·공백이 섞였거나 끝이 bot이 아닌 경우이고, 「already taken」이 나오면 이미 쓰는 아이디라서 숫자를 바꿔 다시 입력하면 됩니다.</small><img class="shot" src="guide_images/tg_step3.png" alt="봇 이름과 아이디 입력" loading="lazy"></li>
+    <li>완료 메시지에 나오는 긴 <b>토큰</b>(숫자:영문 글자)을 복사합니다.<small>토큰은 비밀번호와 같습니다. 다른 사람에게 보내거나 화면을 공유하지 마세요. 풀오토 관리자도 토큰을 절대 묻지 않습니다.</small><img class="shot" src="guide_images/tg_step4.png" alt="토큰 복사" loading="lazy"></li>
+    <li>방금 만든 봇 이름이 맞는지 확인하고 <b>시작</b>을 누릅니다.<img class="shot" src="guide_images/tg_step5.png" alt="봇 확인 후 시작" loading="lazy"></li>
+    <li>풀오토에서 <b>「텔레그램 원격 사용」</b> 스위치를 켜면 입력 창이 뜹니다. 토큰을 붙여 넣고 <b>확인</b>을 누르세요.<small>토큰이 확인되면 6자리 연결 코드가 표시됩니다. 창을 닫아도 연결은 유지되며, 스위치를 끄기 전까지 계속 사용됩니다.</small><img class="shot" src="guide_images/tg_step6.png" alt="풀오토에서 토큰 입력" loading="lazy"></li>
+    <li>봇 대화창에 화면에 표시된 <b>6자리 숫자</b>를 보내면 연결이 완료됩니다.<small>「연결되었습니다」라는 답이 오면 끝입니다. 다른 폰으로 바꿀 때는 스위치를 껐다 켜서 새 코드를 받으세요.</small></li>
+    <li><b>봇 호출 방법:</b> 봇 대화창에 <b>!봇</b> 이라고 입력하면 봇이 활성화되어 메뉴가 나옵니다. 번호를 누르면 한 번 더 확인하고, <b>예</b>를 눌러야 실행됩니다.<img class="shot" src="guide_images/tg_step8.png" alt="!봇 입력으로 봇 호출" loading="lazy"></li>
   </ol>
 
   <h2>메뉴 설명</h2>
