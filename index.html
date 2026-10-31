@@ -124,6 +124,13 @@ ol.steps{list-style:none;padding:0;margin:0;counter-reset:s}
 ol.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px 18px 64px;margin-bottom:12px;position:relative}
 ol.steps li::before{content:counter(s);position:absolute;left:18px;top:16px;width:32px;height:32px;border-radius:50%;background:var(--ac);color:#04130c;font-weight:800;display:flex;align-items:center;justify-content:center}
 ol.steps li small{display:block;color:var(--sub)}
+.mustbox{background:linear-gradient(135deg,#3a1218,#2a0d12);border:2px solid #ff4d5e;border-radius:18px;padding:20px 22px;margin:0 0 22px;box-shadow:0 0 0 4px rgba(255,77,94,.12)}
+.mustbox .mb-t{color:#ff8a96;font-weight:800;font-size:14px;letter-spacing:.3px;margin-bottom:6px}
+.mustbox .mb-m{color:#fff;font-size:22px;font-weight:800;line-height:1.4}
+.mustbox .mb-m b{color:#ffd24d}
+.mustbox .mb-m2{color:#9bf0c4;font-weight:700;font-size:15px;margin-top:10px}
+.mustbox .mb-s{color:#ffc2c8;margin-top:8px;font-size:14px;line-height:1.55}
+@media(max-width:520px){.mustbox .mb-m{font-size:18px}}
 ol.steps li img.shot{display:block;width:100%;max-width:560px;margin-top:14px;border-radius:12px;border:1px solid var(--line)}
 .tip{word-break:keep-all;border-left:4px solid var(--ac);background:var(--card);padding:14px 18px;border-radius:8px;margin-top:16px;color:var(--sub)}
 .warn{border-left-color:var(--warn)}
@@ -549,7 +556,7 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
     <div class="a">선물(Futures) 거래 권한만 켜고, 출금 권한은 반드시 끄세요. 자세한 방법은 「API키 발급 방법」에서 확인할 수 있습니다.</div></details>
 
   <details class="q"><summary><span>프로그램을 끄거나 PC가 꺼지면 어떻게 되나요?</span></summary>
-    <div class="a">프로그램이 꺼지면 익절·손절 감시도 함께 멈춥니다. 이미 잡혀 있는 포지션은 거래소에 그대로 남아 있으니, 포지션이 있는 상태에서는 프로그램과 PC를 켜 두시고, 종료할 때는 거래소 앱에서 포지션 상태를 꼭 확인해 주세요.</div></details>
+    <div class="a">프로그램이 꺼지면 익절·손절 감시도 함께 멈춥니다. 이미 잡혀 있는 포지션은 거래소에 그대로 남아 있으니, 포지션이 있는 상태에서는 프로그램과 PC를 켜 두시고(풀오토 가동 시 윈도우 자동 절전 모드는 꺼집니다. 다만 직접 절전·종료를 누르거나 노트북 덮개를 닫으면 멈춥니다), 종료할 때는 거래소 앱에서 포지션 상태를 꼭 확인해 주세요.</div></details>
 
   <details class="q"><summary><span>어떤 종목을 매매하나요?</span></summary>
     <div class="a">비트코인(BTC), 이더리움(ETH), 리플(XRP), 솔라나(SOL) 중에서 원하는 종목을 선택해 감시할 수 있습니다.</div></details>
@@ -583,6 +590,12 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 <section class="page" id="remote">
   <h1>원격 봇 연결 방법</h1>
   <p class="lead">폰의 텔레그램으로 매매를 정지·시작하고, 진입 알림을 받는 선택 기능입니다. 봇은 내가 직접 만들며 1분 정도 걸립니다.</p>
+  <div class="mustbox">
+    <div class="mb-t">⚠️ 반드시 확인하세요</div>
+    <div class="mb-m"><b>풀오토 · 컴퓨터 · 텔레그램</b>이 항상 켜져 있어야 합니다.</div>
+    <div class="mb-m2">✅ 풀오토 가동 시 윈도우 자동 절전 모드는 꺼집니다.</div>
+    <div class="mb-s">컴퓨터가 꺼지거나 인터넷이 끊기거나 풀오토를 종료하면 원격 명령도, 진입·청산 알림도 전달되지 않습니다. 매매 중에는 풀오토가 자동 절전을 막아 주지만, 직접 절전·최대 절전·종료를 누르거나 노트북 덮개를 닫으면 멈춥니다.</div>
+  </div>
   <ol class="steps">
     <li>텔레그램에서 <b>BotFather</b>를 검색해서 열고 <b>시작</b>을 누릅니다.<small>이름이 정확히 BotFather이고 파란 인증 표시가 있는 계정만 사용하세요.</small><img class="shot" src="guide_images/tg_step1.png" alt="BotFather 검색 후 시작" loading="lazy"></li>
     <li>대화창의 <b>/newbot</b> 을 누릅니다.<img class="shot" src="guide_images/tg_step2.png" alt="newbot 누르기" loading="lazy"></li>
@@ -610,7 +623,7 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
   <h1>풀오토 다운로드</h1>
   <p class="lead">승인이 완료된 분만 사용할 수 있습니다. 아래 버튼은 항상 최신 버전으로 연결됩니다.</p>
   <div class="dl">
-    <h2 style="margin:0 0 6px">FullAuto <span id="dlVer">v1.22</span></h2>
+    <h2 style="margin:0 0 6px">FullAuto <span id="dlVer">v1.23</span></h2>
     <p style="margin:0 0 20px">Windows 전용 · 최종 업데이트 <b id="dlDate">2026.10.31</b></p>
     <a class="btn" href="https://github.com/chadokhak/fullauto-site/releases/latest/download/fullauto.exe">최신 버전 다운로드</a>
     <p style="font-size:13px;margin-top:20px">일부 백신 프로그램이 새 프로그램을 경고할 수 있습니다. 문의가 필요하면 관리자에게 연락해 주세요.</p>
@@ -618,7 +631,7 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 
   <h2>업데이트 내역</h2>
   <div class="log">
-    <h3><span id="logVer">v1.22</span> <span style="color:var(--ac);font-size:14px">최신 버전</span></h3>
+    <h3><span id="logVer">v1.23</span> <span style="color:var(--ac);font-size:14px">최신 버전</span></h3>
     <ul id="logList">
       <li>텔레그램 원격 기능 추가 (폰에서 !봇으로 정지·전체청산·시작·상태 확인, 진입·청산 알림)</li>
       <li>화면 디자인 개편 (둥근 카드, 스위치형 설정, 잔고 카드)</li>
@@ -636,6 +649,7 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
       <li>텔레그램 원격 스위치를 매매 설정 안으로 이동, 실시간 포지션/로그 칸 크기 1:1로 조정</li>
       <li>API 키·텔레그램 봇 토큰을 새 입력 창에서 입력하도록 변경 (확인 후 창을 닫아도 유지, 스위치를 끄면 삭제)</li>
       <li>프로그램을 처음 켰을 때 화면 크기를 조정해 로그칸까지 모두 보이도록 개선</li>
+      <li>매매 중에는 윈도우가 자동으로 절전 모드에 들어가지 않도록 개선</li>
     </ul>
   </div>
 
