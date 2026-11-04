@@ -235,6 +235,47 @@ footer .chip.tg-c{background:#229ed9;border-color:#229ed9;color:#fff}
 footer .chip.off{color:var(--sub);cursor:default}
 footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub);border:1px solid var(--line);border-radius:20px;padding:1px 8px}
 
+/* 거래소 선택 / 승인 절차 / API 단계 */
+.xsel{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0 8px;align-items:stretch}
+.xbtn{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px;text-align:center;font:inherit;color:var(--tx);background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 14px 16px;cursor:pointer;transition:.15s;word-break:keep-all;overflow-wrap:break-word;min-width:0}
+.xbtn:hover{transform:translateY(-2px);border-color:var(--ac)}
+.xbtn.on{border-color:var(--ac);box-shadow:0 0 0 2px var(--ac) inset}
+.xbtn .xb-img{display:block;width:84px;height:84px;border-radius:22px;box-shadow:0 8px 24px rgba(255,122,0,.25)}
+.xbtn .ok-mark{display:flex;align-items:center;justify-content:center;width:84px;height:84px;border-radius:22px;background:#000;border:1px solid #333;color:#fff;font-weight:900;font-size:22px;letter-spacing:.04em}
+.xbtn .dc-name{font-size:24px;font-weight:900;letter-spacing:.12em;color:#ff7a00;text-shadow:0 2px 14px rgba(255,122,0,.35)}
+.xbtn .ok-name{font-size:24px;font-weight:900;letter-spacing:.12em;color:var(--tx)}
+.xbtn .xcap{display:block;font-size:15px;line-height:1.5}
+.xbtn .xcap b{color:var(--ac)}
+.xbtn .xcap small{display:block;color:var(--sub);font-size:13px;line-height:1.55;margin-top:8px}
+.xbtn .xcap small b{color:var(--tx)}
+.xbtn .xmax{display:block;margin-top:10px;padding:6px 12px;border-radius:999px;background:rgba(61,220,151,.14);color:var(--ac);font-size:13px;font-weight:800}
+.xbtn .xgo{margin-top:auto;padding-top:8px;font-size:13px;font-weight:800;color:var(--ac)}
+.xpanel{margin-top:20px}
+.xpanel[hidden]{display:none}
+.xpanel h2{margin:0 0 14px;font-size:20px}
+.hsteps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.hs{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 12px 14px;text-align:left;word-break:keep-all;overflow-wrap:break-word;min-width:0}
+.hs .gs-n{position:absolute;left:-6px;top:-8px;width:30px;height:30px;border-radius:50%;background:var(--ac);color:#04130c;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
+.hs .gs-t{margin:0 0 8px;font-size:16px;font-weight:800;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.hs p{margin:0 0 8px;font-size:14px;line-height:1.55}
+.hs small{display:block;color:var(--sub);font-size:12px;line-height:1.55}
+.xlink{display:inline-block;margin-top:4px;padding:8px 12px;border-radius:10px;background:var(--ac);color:#04130c;font-weight:800;font-size:13px;text-decoration:none}
+.gsteps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px}
+.gs{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;position:relative;display:flex;flex-direction:column;text-align:left;word-break:keep-all;overflow-wrap:break-word}
+.gs>.gs-n{position:absolute;left:-8px;top:-8px;width:34px;height:34px;border-radius:50%;background:var(--ac);color:#04130c;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:16px;z-index:2}
+.gs .gimg{margin:0 0 14px;aspect-ratio:3/2;display:flex;align-items:center;justify-content:center}
+.gs .gimg img{width:100%;height:100%;object-fit:contain}
+.gs-t{margin:0 0 10px;font-size:17px;font-weight:800;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.gl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.5}
+.gl li{position:relative;padding-left:18px}
+.gl li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--ac)}
+.gs-s{display:block;color:var(--sub);font-size:13px;margin-top:2px}
+.gimg{display:block;width:100%;margin:12px 0 0;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#000;cursor:zoom-in}
+.gimg img{display:block;width:100%;height:auto}
+@media(max-width:1100px){.hsteps{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:820px){.gsteps{grid-template-columns:1fr}}
+@media(max-width:640px){.hsteps{grid-template-columns:1fr}.hs{padding-left:44px}.hs .gs-n{left:8px;top:14px}.xsel{gap:10px}.xbtn{padding:16px 8px 14px}.xbtn .xb-img,.xbtn .ok-mark{width:64px;height:64px;border-radius:16px}.xbtn .dc-name,.xbtn .ok-name{font-size:19px}.xbtn .xcap{font-size:14px}.xbtn .xcap small{font-size:12px}}
+
 /* 모바일 */
 .burger{display:none;position:fixed;top:12px;right:12px;left:auto;z-index:60;background:linear-gradient(135deg,var(--ac),var(--ac2));border:0;color:#fff;border-radius:14px;height:46px;padding:0 16px;font-size:16px;font-weight:800;letter-spacing:.2px;cursor:pointer;align-items:center;gap:8px;box-shadow:0 4px 16px rgba(61,220,151,.45);animation:burgerPulse 2s ease-in-out infinite}
 .burger b{font-size:22px;line-height:1;font-weight:800}
