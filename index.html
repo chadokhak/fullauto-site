@@ -222,6 +222,29 @@ details.q .a img{display:block;width:100%;max-width:720px;margin-top:14px;border
 .ok-head{display:flex;align-items:center;justify-content:center;gap:14px;margin:34px 0 22px}
 .ok-head .ok-mark{width:72px;height:72px;border-radius:20px;font-size:24px}
 .ok-head .ok-name{font-size:26px}
+
+/* 거래소 선택 (가로) */
+.xsel{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:8px 0 18px;align-items:stretch}
+.xbtn{display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 14px 18px;border:2px solid var(--line);border-radius:20px;background:var(--card);cursor:pointer;color:var(--tx);font:inherit;text-align:center;transition:.15s;word-break:keep-all}
+.xbtn:hover{transform:translateY(-3px);border-color:var(--ac)}
+.xbtn.on{border-color:var(--ac);box-shadow:0 0 0 3px rgba(20,166,107,.18)}
+.xbtn .xb-img{display:block;border-radius:24px;box-shadow:0 8px 24px rgba(255,122,0,.25)}
+.xbtn .ok-mark{width:96px;height:96px}
+.xbtn .dc-name,.xbtn .ok-name{font-size:24px}
+.xcap{font-size:16px;font-weight:700;line-height:1.5}
+.xcap small{display:block;color:var(--sub);font-weight:400;margin-top:8px;font-size:14px}
+.xmax{display:inline-block;margin-top:10px;padding:6px 14px;border-radius:999px;background:rgba(255,122,0,.14);color:#ff7a00;font-size:15px;font-weight:800}
+.xgo{margin-top:auto;font-size:13px;color:var(--ac2);font-weight:700}
+.xpanel{margin:6px 0 24px;padding:20px 0 0;border-top:1px solid var(--line)}
+.xpanel[hidden]{display:none}
+.xpanel h2{margin:0 0 16px}
+.hsteps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.hs{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 14px 16px;position:relative;text-align:left;word-break:keep-all;display:flex;flex-direction:column}
+.hs p{margin:0 0 8px;line-height:1.55;font-size:15px}
+.hs small{display:block;color:var(--sub);line-height:1.5;font-size:13px}
+.xlink{display:inline-block;margin-top:auto;padding:10px 12px;border-radius:12px;background:var(--ac);color:#04130c;font-weight:800;text-align:center;text-decoration:none;font-size:14px}
+@media(max-width:900px){.hsteps{grid-template-columns:repeat(2,1fr)}.gsteps{grid-template-columns:1fr}}
+@media(max-width:520px){.xsel{gap:10px}.xbtn{padding:16px 8px 14px}.xcap{font-size:14px}.xbtn .xb-img,.xbtn .ok-mark{width:72px;height:72px}.xbtn .dc-name,.xbtn .ok-name{font-size:19px}}
 .gsteps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px}
 .gs{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;position:relative}
 .gs-n{position:absolute;left:-8px;top:-8px;width:34px;height:34px;border-radius:50%;background:var(--ac);color:#04130c;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;z-index:1}
@@ -439,35 +462,32 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 <!-- 승인 받는 방법 -->
 <section class="page" id="approve">
   <h1>승인 받는 방법</h1>
-  <p class="lead">아래 거래소 로고를 누르면<br>안내된 링크로 바로 가입할 수 있습니다.<br>DEEPCOIN과 OKX 중 사용할 거래소를 선택해 주세요.</p>
-
-  <div class="dc">
-    <a class="dc-logo" href="https://s.deepcoin.com/9608004" target="_blank" rel="noopener" aria-label="DEEPCOIN 가입하기">
-      <img src="data:image/png;base64,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" alt="DEEPCOIN 로고" width="120" height="120">
-      <span class="dc-name">DEEPCOIN</span>
-    </a>
-    <div class="dc-cap">수수료 <b>30%</b> 할인<small>✔ 트래블룰 연동 한국 거래소: <b>빗썸 · 코인원</b><br>국내 거래소에서 바로 입금·출금이 가능합니다.</small></div>
+  <p class="lead">사용할 거래소를 선택해 주세요.<br>거래소 이미지를 누르면<br>그 아래에 승인 방법이 나옵니다.</p>
+  <div class="xsel">
+    <button type="button" class="xbtn dc" data-grp="ap" data-t="ap-dc" aria-expanded="false"><img src="data:image/png;base64,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" alt="DEEPCOIN 로고" width="96" height="96" class="xb-img"><span class="dc-name">DEEPCOIN</span><span class="xcap">수수료 <b>30%</b> 할인<small>✔ 트래블룰 연동 한국 거래소: <b>빗썸 · 코인원</b><br>국내 거래소에서 바로 입금·출금이 가능합니다.</small><span class="xmax">최대 수수료 할인 <b>50%</b></span></span><span class="xgo">이미지를 눌러주세요 ▼</span></button>
+    <button type="button" class="xbtn ok" data-grp="ap" data-t="ap-ok" aria-expanded="false"><span class="ok-mark">OKX</span><span class="ok-name">OKX</span><span class="xcap">수수료 <b>10%</b> 할인<small>✔ 트래블룰 연동 한국 거래소: <b>업비트 · 빗썸</b><br>국내 거래소에서 바로 입금·출금이 가능합니다.</small></span><span class="xgo">이미지를 눌러주세요 ▼</span></button>
   </div>
-
-  <div class="dc-gap"></div>
-  <div class="dc">
-    <a class="ok-logo" href="https://okx.com/join/89777622" target="_blank" rel="noopener" aria-label="OKX 가입하기">
-      <span class="ok-mark">OKX</span>
-      <span class="ok-name">OKX</span>
-    </a>
-    <div class="dc-cap">수수료 <b>10%</b> 할인<small>OKX 가입 후 UID를 확인해 관리자에게 전달해 주세요.<br>OKX UID는 우측 상단 프로필 메뉴에서 확인할 수 있습니다.</small></div>
+  <div class="xpanel" id="ap-dc" hidden>
+    <h2>DEEPCOIN 승인 절차</h2>
+    <div class="hsteps">
+      <div class="hs"><div class="gs-n">1</div><h3 class="gs-t">가입하기</h3><p>아래 버튼으로<br>안내된 링크에서<br>가입합니다.</p><a class="xlink" href="https://s.deepcoin.com/9608004" target="_blank" rel="noopener">DEEPCOIN 가입하기 →</a></div>
+      <div class="hs"><div class="gs-n">2</div><h3 class="gs-t">UID 확인</h3><p>가입 후<br>본인의 UID를 확인합니다.</p><small>DEEPCOIN UID는<br>9자리 숫자입니다.</small></div>
+      <div class="hs"><div class="gs-n">3</div><h3 class="gs-t">증거금 이동</h3><p><b>선물 지갑으로<br>500 USDT 이상</b>을<br>이동해 주세요.</p><small>풀오토는 최소 증거금 500 USDT 이상을<br>유지해야 사용할 수 있습니다.</small></div>
+      <div class="hs"><div class="gs-n">4</div><h3 class="gs-t">UID 전달</h3><p>관리자에게<br>UID를 전달합니다.</p><small>문의 방법은<br>「관리자 소개 및 문의」<br>메뉴에서 확인하세요.</small></div>
+      <div class="hs"><div class="gs-n">5</div><h3 class="gs-t">승인 완료</h3><p>승인이 완료되면<br>프로그램을 내려받아<br>사용할 수 있습니다.</p></div>
+    </div>
   </div>
-
+  <div class="xpanel" id="ap-ok" hidden>
+    <h2>OKX 승인 절차</h2>
+    <div class="hsteps">
+      <div class="hs"><div class="gs-n">1</div><h3 class="gs-t">가입하기</h3><p>아래 버튼으로<br>안내된 링크에서<br>가입합니다.</p><a class="xlink" href="https://okx.com/join/89777622" target="_blank" rel="noopener">OKX 가입하기 →</a></div>
+      <div class="hs"><div class="gs-n">2</div><h3 class="gs-t">UID 확인</h3><p>가입 후<br>본인의 UID를 확인합니다.</p><small>OKX UID는 우측 상단<br>프로필 메뉴에서 확인할 수 있습니다.</small></div>
+      <div class="hs"><div class="gs-n">3</div><h3 class="gs-t">증거금 이동</h3><p><b>선물 지갑으로<br>500 USDT 이상</b>을<br>이동해 주세요.</p><small>풀오토는 최소 증거금 500 USDT 이상을<br>유지해야 사용할 수 있습니다.</small></div>
+      <div class="hs"><div class="gs-n">4</div><h3 class="gs-t">UID 전달</h3><p>관리자에게<br>UID를 전달합니다.</p><small>문의 방법은<br>「관리자 소개 및 문의」<br>메뉴에서 확인하세요.</small></div>
+      <div class="hs"><div class="gs-n">5</div><h3 class="gs-t">승인 완료</h3><p>승인이 완료되면<br>프로그램을 내려받아<br>사용할 수 있습니다.</p></div>
+    </div>
+  </div>
   <div class="tip warn"><b>안내</b><br>더 이상 게이트아이오 거래소 연동은<br>API KEY 지원 문제로 지원하지 않습니다.</div>
-
-  <h2>승인 절차</h2>
-  <ol class="steps">
-    <li>위 DEEPCOIN 또는 OKX 로고를 눌러<br>안내된 링크로 가입합니다.</li>
-    <li>가입 후 본인의 UID를 확인합니다.</li>
-    <li>UID를 전달하기 전에<br><b>선물 지갑으로 500 USDT 이상</b>의 자금을 이동해 주세요.<small>풀오토는 최소 증거금 500 USDT 이상을<br>유지해야 사용할 수 있습니다.</small></li>
-    <li>관리자에게 UID를 전달합니다.<small>문의 방법은 「관리자 소개 및 문의」 메뉴에서 확인하세요.</small></li>
-    <li>승인이 완료되면 프로그램을 내려받아 사용할 수 있습니다.</li>
-  </ol>
 </section>
 
 <!-- 관리자 문의 -->
@@ -503,10 +523,14 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 <!-- API키 -->
 <section class="page" id="api">
   <h1>API키 발급 방법</h1>
-  <p class="lead">프로그램이 내 계정으로 주문을 내려면 API 키가 필요합니다.<br>아래 순서대로 따라 해주세요.</p>
-  <div class="dc-head"><img src="data:image/png;base64,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" alt="DEEPCOIN 로고" width="88" height="88"><span class="dc-name">DEEPCOIN</span></div>
-
-  <div class="gsteps">
+  <p class="lead">프로그램이 내 계정으로 주문을 내려면 API 키가 필요합니다.<br>사용할 거래소 이미지를 누르면<br>그 아래에 발급 방법이 나옵니다.</p>
+  <div class="xsel">
+    <button type="button" class="xbtn dc" data-grp="ak" data-t="ak-dc" aria-expanded="false"><img src="data:image/png;base64,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" alt="DEEPCOIN 로고" width="96" height="96" class="xb-img"><span class="dc-name">DEEPCOIN</span><span class="xcap">DEEPCOIN API 발급 방법</span><span class="xgo">이미지를 눌러주세요 ▼</span></button>
+    <button type="button" class="xbtn ok" data-grp="ak" data-t="ak-ok" aria-expanded="false"><span class="ok-mark">OKX</span><span class="ok-name">OKX</span><span class="xcap">OKX API 발급 방법</span><span class="xgo">이미지를 눌러주세요 ▼</span></button>
+  </div>
+  <div class="xpanel" id="ak-dc" hidden>
+    <h2>DEEPCOIN API 발급</h2>
+    <div class="gsteps">
     <div class="gs">
       <div class="gs-n">1</div>
       <button class="gimg" data-img="api-deepcoin-1.jpg" data-cap="1단계 · API Management"><img src="api-deepcoin-1.jpg" alt="딥코인 API Management 메뉴" loading="lazy"></button>
@@ -540,9 +564,10 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
       </ul>
     </div>
   </div>
-
-  <div class="ok-head"><span class="ok-mark">OKX</span><span class="ok-name">OKX</span></div>
-  <div class="gsteps">
+  </div>
+  <div class="xpanel" id="ak-ok" hidden>
+    <h2>OKX API 발급</h2>
+    <div class="gsteps">
     <div class="gs">
       <div class="gs-n">1</div>
       <button class="gimg" data-img="okx-api-1.jpg" data-cap="1단계 · API and connections"><img src="okx-api-1.jpg" alt="OKX 프로필 메뉴에서 API and connections 선택" loading="lazy"></button>
@@ -602,7 +627,8 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
       </ul>
     </div>
   </div>
-  <div class="tip warn"><b>발급된 API Key와 Secret Key,<br>입력했던 Passphrase는 따로 저장해 주세요.</b><br>OKX의 Passphrase는 풀오토의 「API 비밀번호」 칸에 입력합니다.</div>
+    <div class="tip warn"><b>발급된 API Key와 Secret Key,<br>입력했던 Passphrase는 따로 저장해 주세요.</b><br>OKX의 Passphrase는 풀오토의 「API 비밀번호」 칸에 입력합니다.</div>
+  </div>
 
   <div class="tip warn"><b>이 이후에는 API KEY와 SECRET KEY가 나옵니다.</b><br>절대 노출하지 마시고, 따로 컴퓨터에 메모만 남겨놔 주세요.</div>
   <div class="tip warn"><b>API 키는 타인에게 알려 주지 마세요.</b><br>관리자도 API KEY·SECRET KEY를 절대 요구하지 않습니다.</div>
@@ -705,7 +731,7 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
   <h1>풀오토 다운로드</h1>
   <p class="lead">승인이 완료된 분만 사용할 수 있습니다.<br>아래 버튼은 항상 최신 버전으로 연결됩니다.</p>
   <div class="dl">
-    <h2 style="margin:0 0 6px">FullAuto <span id="dlVer">v1.29</span></h2>
+    <h2 style="margin:0 0 6px">FullAuto <span id="dlVer">v1.31</span></h2>
     <p style="margin:0 0 20px">Windows 전용 · 최종 업데이트 <b id="dlDate">2026.11.04</b></p>
     <a class="btn" href="https://github.com/chadokhak/fullauto-site/releases/latest/download/fullauto.exe">최신 버전 다운로드</a>
     <p style="font-size:13px;margin-top:20px">일부 백신 프로그램이 새 프로그램을 경고할 수 있습니다.<br>문의가 필요하면 관리자에게 연락해 주세요.</p>
@@ -713,8 +739,10 @@ footer .chip em{font-style:normal;font-size:12px;font-weight:600;color:var(--sub
 
   <h2>업데이트 내역</h2>
   <div class="log">
-    <h3><span id="logVer">v1.29</span> <span style="color:var(--ac);font-size:14px">최신 버전</span></h3>
+    <h3><span id="logVer">v1.31</span> <span style="color:var(--ac);font-size:14px">최신 버전</span></h3>
     <ul id="logList">
+      <li>홈페이지 개편 (승인 방법·API 발급 방법을 DEEPCOIN / OKX로 나누고, 거래소 이미지를 누르면 아래에 안내가 나오도록 변경)</li>
+      <li>사용 승인 기간 기능 지원 (승인 기간이 지난 UID는 자동으로 사용이 중지됩니다)</li>
       <li>거래소 안내 문구 수정 (DEEPCOIN 수수료 30% 할인, OKX 수수료 10% 할인)</li>
       <li>OKX 거래소 지원 추가 (거래소 선택에서 OKX를 고르고, API 생성 때 정한 Passphrase는 「API 비밀번호」 칸에 입력)</li>
       <li>진입 전에 4시간봉의 큰 흐름까지 확인하도록 개선 (큰 흐름과 반대 방향 신호는 건너뜀)</li>
@@ -813,6 +841,15 @@ function show(){
 window.addEventListener('hashchange',show);
 document.getElementById('burger').onclick=()=>side.classList.toggle('open');
 show();
+
+
+// ---- 거래소 선택 (승인 방법 / API 발급 방법) ----
+document.querySelectorAll('.xbtn').forEach(b=>b.addEventListener('click',()=>{
+  const g=b.dataset.grp, t=document.getElementById(b.dataset.t), open=t.hidden;
+  document.querySelectorAll('.xbtn[data-grp="'+g+'"]').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-expanded','false')});
+  document.querySelectorAll('.xpanel[id^="'+g+'-"]').forEach(x=>x.hidden=true);
+  if(open){t.hidden=false;b.classList.add('on');b.setAttribute('aria-expanded','true');t.scrollIntoView({behavior:'smooth',block:'nearest'})}
+}));
 
 // ---- 수상 이미지 보기 ----
 const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbMsg=document.getElementById('lbMsg');
