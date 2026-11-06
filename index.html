@@ -233,10 +233,10 @@ header nav{white-space:nowrap}header nav a{white-space:nowrap}
 <div class="flinks"><a href="https://open.kakao.com/o/s7LRMIUi" target="_blank" rel="noopener">1:1 오픈채팅 문의</a><a href="https://www.youtube.com/@chart_dok" target="_blank" rel="noopener">유튜브 차트독학</a><a href="https://t.me/Chadok_Fullauto" target="_blank" rel="noopener">텔레그램</a></div><p class="fnote">풀오토는 매매를 보조하는 도구이며 수익을 보장하지 않습니다.<br>투자 판단과 그에 따른 결과는 사용자 본인에게 있습니다.</p></footer></div>
 <script>
 (function(){var v=document.getElementById('hv'),p=document.getElementById('posterBg'),d=document.querySelectorAll('.dots i'),L=['scene1.mp4','scene2.mp4','scene3.mp4','scene4.mp4','scene5.mp4'],k=0;
-function go(){v.style.display="none";p.style.display="block";v.src=L[k];d.forEach(function(e,i){e.className=i==k?'on':''});v.play().catch(function(){})}
+var first=1;function go(){v.style.display="none";p.style.display=first?"block":"none";v.src=L[k];d.forEach(function(e,i){e.className=i==k?'on':''});v.play().catch(function(){})}
 v.addEventListener('playing',function(){v.style.display='block';p.style.display='none'});
 v.addEventListener('ended',function(){k=(k+1)%L.length;go()});
-d.forEach(function(e,i){e.style.cursor='pointer';e.addEventListener('click',function(){k=i;go()})});if(!window.__shot)go()})();
+v.addEventListener('playing',function(){first=0});d.forEach(function(e,i){e.style.cursor='pointer';e.addEventListener('click',function(){k=i;go()})});if(!window.__shot)go()})();
 
 /* PC 휠·키보드: 한 칸씩 이동 (모바일 터치는 CSS 스냅) */
 (function(){if(matchMedia('(pointer:coarse)').matches)return;
