@@ -161,7 +161,7 @@ html{overscroll-behavior-y:none}
 }
 .hero-stat .up{flex:none;filter:drop-shadow(0 0 14px rgba(255,122,26,.55))}
 .hero-stat .hs{display:flex;align-items:center;gap:14px}
-.free{display:inline-flex;align-items:center;gap:8px;margin-right:22px;color:#fff1e6;font-size:15px;font-weight:600}.free b{color:var(--ac);font-size:16px}.free:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ac);box-shadow:0 0 10px var(--ac)}.hnav{display:flex;align-items:center}.herofree{position:absolute;left:calc((100vw - max(100vw,177.78vh))/2 + max(100vw,177.78vh)*.0625);top:calc(27.4% - 100px);z-index:5;display:flex;align-items:center;gap:10px;color:#f7f5f2;font-size:20px;font-weight:600;white-space:nowrap;text-shadow:0 2px 12px rgba(0,0,0,.6)}.herofree:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--ac);box-shadow:0 0 10px var(--ac)}.herofree b{color:var(--ac);font-size:20px;margin-left:4px}@media(max-width:900px){.free{display:none}.herofree{font-size:16px;top:auto;bottom:64px;left:50%;transform:translateX(-50%)}.herofree b{font-size:18px}}footer{flex-wrap:wrap;row-gap:22px}.fnote{flex-basis:100%;color:#5a5853;font-size:11.5px;line-height:1.7}</style><style>.dots i{cursor:pointer;position:relative}.dots i:after{content:"";position:absolute;left:-3px;right:-3px;top:-16px;bottom:-16px}</style><style>
+.free{display:inline-flex;align-items:center;gap:8px;margin-right:22px;color:#fff1e6;font-size:15px;font-weight:600}.free b{color:var(--ac);font-size:16px}.free:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ac);box-shadow:0 0 10px var(--ac)}.hnav{display:flex;align-items:center}.herofree{position:absolute;left:calc((100vw - max(100vw,177.78vh))/2 + max(100vw,177.78vh)*.0625);top:calc(27.4% - 100px);z-index:5;display:flex;align-items:center;gap:10px;color:#f7f5f2;font-size:20px;font-weight:600;white-space:nowrap;text-shadow:0 2px 12px rgba(0,0,0,.6)}.herofree:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--ac);box-shadow:0 0 10px var(--ac)}.herofree b{color:var(--ac);font-size:20px;margin-left:4px}@media(max-width:900px){.free{display:none}.herofree{font-size:16px;top:auto;bottom:64px;left:50%;transform:translateX(-50%)}.herofree b{font-size:18px}}footer{flex-wrap:wrap;row-gap:22px}.fnote{flex-basis:100%;color:#5a5853;font-size:11.5px;line-height:1.7}</style><style>video::-webkit-media-controls,video::-webkit-media-controls-overlay-play-button,video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls-panel{display:none!important;-webkit-appearance:none}</style><style>.dots i{cursor:pointer;position:relative}.dots i:after{content:"";position:absolute;left:-3px;right:-3px;top:-16px;bottom:-16px}</style><style>
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 32px;border-radius:14px;border:1.5px solid transparent;background:linear-gradient(180deg,#ff8a2e,#ff6d0a);color:#150a02;font-size:16px;font-weight:800;line-height:1.2;white-space:nowrap;text-align:center;box-shadow:0 8px 24px rgba(255,122,26,.28),inset 0 1px 0 rgba(255,255,255,.25);transition:transform .15s,box-shadow .15s,background .15s}
 .btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,122,26,.4),inset 0 1px 0 rgba(255,255,255,.25)}
 .btn.o{background:rgba(255,122,26,.06);border-color:rgba(255,122,26,.55);color:#ff9a45;box-shadow:none}
@@ -173,6 +173,7 @@ div:has(>.btn){flex-wrap:wrap}
 .aw{display:block;width:100%;height:150px;object-fit:cover;object-position:top;border-radius:12px;margin-top:16px;border:1px solid #2a2a2e}
 .cd.zoom{cursor:zoom-in}.cd .hint{display:block;margin-top:10px;font-size:12.5px;color:#8d8a84}
 a.cd.yt .hint{color:#ff9a45}
+.cd .hint.pic{color:#ff7a1a;font-size:15px;font-weight:800;margin-top:16px}.cd.zoom:hover .hint.pic{color:#ffa24d}
 #lbx{position:fixed;inset:0;z-index:100;background:#000d;display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}#lbx.on{display:flex}#lbx img{max-width:100%;max-height:100%;border-radius:10px}
 
 header nav{white-space:nowrap}header nav a{white-space:nowrap}
@@ -193,7 +194,7 @@ header nav{white-space:nowrap}header nav a{white-space:nowrap}
 
 <div class="hero" id="home">
  <div class="poster" id="posterBg" style="background:url(poster.png) center/cover"></div>
- <video id="hv" muted playsinline autoplay style="display:none"></video>
+ <video id="hv" muted playsinline autoplay preload="auto" poster="poster.png" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" style="display:none"></video>
  <div class="herofree">승인 즉시 <b>무료 사용</b> 가능</div>
  <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
 </div>
@@ -232,7 +233,7 @@ header nav{white-space:nowrap}header nav a{white-space:nowrap}
 <div class="flinks"><a href="https://open.kakao.com/o/s7LRMIUi" target="_blank" rel="noopener">1:1 오픈채팅 문의</a><a href="https://www.youtube.com/@chart_dok" target="_blank" rel="noopener">유튜브 차트독학</a><a href="https://t.me/Chadok_Fullauto" target="_blank" rel="noopener">텔레그램</a></div><p class="fnote">풀오토는 매매를 보조하는 도구이며 수익을 보장하지 않습니다.<br>투자 판단과 그에 따른 결과는 사용자 본인에게 있습니다.</p></footer></div>
 <script>
 (function(){var v=document.getElementById('hv'),p=document.getElementById('posterBg'),d=document.querySelectorAll('.dots i'),L=['scene1.mp4','scene2.mp4','scene3.mp4','scene4.mp4','scene5.mp4'],k=0;
-function go(){v.src=L[k];d.forEach(function(e,i){e.className=i==k?'on':''});v.play().catch(function(){})}
+function go(){v.style.display="none";p.style.display="block";v.src=L[k];d.forEach(function(e,i){e.className=i==k?'on':''});v.play().catch(function(){})}
 v.addEventListener('playing',function(){v.style.display='block';p.style.display='none'});
 v.addEventListener('ended',function(){k=(k+1)%L.length;go()});
 d.forEach(function(e,i){e.style.cursor='pointer';e.addEventListener('click',function(){k=i;go()})});if(!window.__shot)go()})();
