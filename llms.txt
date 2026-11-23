@@ -1,0 +1,17 @@
+# 풀오토 트레이딩
+
+> 풀오토는 감정을 빼고 차트 기준으로만 매매하는 코인 선물 자동매매 프로그램입니다.
+> 딥코인, 오케이엑스 계정에 연결해 사용하며, 승인 즉시 무료로 사용할 수 있습니다.
+> 운영 : 차트독학(차독). 유튜브 @chart_dok
+
+## 주요 페이지
+- [프로그램 소개](https://fullauto.kr/): 풀오토가 무엇이고 어떻게 쓰는지
+- [승인 받는 방법](https://fullauto.kr/approve.html): 사용 승인 절차
+- [API 키 발급 방법](https://fullauto.kr/api.html): 거래소 API 연동
+- [다운로드](https://fullauto.kr/download.html): 최신 버전과 업데이트 내역
+- [자주 묻는 질문](https://fullauto.kr/faq.html): 사용 방법, 필요 증거금, 매매 종목 등
+- [차트 강의](https://fullauto.kr/lecture.html): 차트독학의 차트 강의와 실전매매 영상
+- [사용 후기](https://fullauto.kr/review.html): 사용자 후기
+
+## 안내
+- 풀오토는 매매 보조 도구이며 수익을 보장하지 않습니다. 투자 판단과 결과는 사용자 본인에게 있습니다.
