@@ -12,6 +12,7 @@
 - [다운로드](https://fullauto.kr/download.html): 최신 버전과 업데이트 내역
 - [원격 설정](https://fullauto.kr/bot.html): 폰 앱·텔레그램으로 화면 보기, 매매 시작·정지, 청산
 - [자주 묻는 질문](https://fullauto.kr/faq.html): 사용 방법, 필요 증거금, 매매 종목 등
+- [질문하기](https://fullauto.kr/ask.html): 관리자에게 비공개로 질문 남기기
 - [차트 강의](https://fullauto.kr/lecture.html): 차트독학의 차트 강의와 실전매매 영상
 - [사용 후기](https://fullauto.kr/review.html): 사용자 후기
 
