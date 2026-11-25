@@ -1,12 +1,12 @@
 {
-  "version": "v1.71",
-  "date": "2026.11.24",
+  "version": "v1.72",
+  "date": "2026.11.25",
   "notes": [
-    "포지션 관리 안정성 개선"
+    "직접 잡은 포지션 표시 개선"
   ],
   "web_notes": [
-    "포지션 관리 안정성 개선"
+    "UI 관련 편의성 개편"
   ],
-  "file": "fullauto_v1.71.exe",
-  "tag": "V1.71"
+  "file": "fullauto_v1.72.exe",
+  "tag": "v1.72"
 }
